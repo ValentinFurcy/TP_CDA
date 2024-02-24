@@ -1,0 +1,15 @@
+{
+  "name": "front-test", 
+"version": "1.0.0", 
+"description": "", 
+"main": "index.js", 
+"scripts": { 
+"compile": "sass src/assets/scss/main.scss src/assets/css/main.css --watch" 
+    }, 
+"keywords": [], 
+"author": "", 
+"license": "ISC", 
+"devDependencies": { 
+"sass": "^1.70.0" 
+    } 
+}

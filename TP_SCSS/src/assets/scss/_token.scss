@@ -1,0 +1,16 @@
+@font-face {
+    font-family: "Gobold";
+    src: url("../fonts/gobold_thin-webfont.woff") format("woff");
+}
+
+@font-face {
+    font-family: "Malgun";
+    src: url("../fonts/malgun.ttf") format("truetype");
+}
+
+$primary: #e6007e;
+$secondary: #00355f;
+$text-color: #565656;
+
+$title-font: "Gobold", sans-serif;
+$paragraph-font: "Malgun", sans-serif;
