@@ -1,0 +1,19 @@
+img{
+    max-width: 300px;
+    margin-right: auto;
+    padding-bottom: 20px;
+    animation-name: animate_img;
+    animation-duration: 5s;
+}
+
+@keyframes animate_img {
+    from {
+        transform: rotate(0);
+    }
+    50% {
+        transform: rotate(180deg);
+    }
+    to {
+        transform: rotate(360deg)
+    }
+}

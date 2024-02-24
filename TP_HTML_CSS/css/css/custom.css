@@ -1,0 +1,78 @@
+header {
+  position: relative;
+  height: 300px;
+  padding: 1.2rem;
+  background-color: burlywood;
+}
+
+h1 {
+  text-align: center;
+}
+
+nav {
+  font-weight: bold;
+  position: absolute;
+  bottom: .6px;
+  right: 1.2rem;
+  max-width: 100%;
+}
+
+nav a,
+nav p {
+  display: inline;
+  margin: 0 .6rem;
+}
+
+a:hover :not(icon-up-outline){
+  color: red;
+}
+
+h2 {
+  color: red;
+}
+
+section {
+  border: solid 2px blue;
+  border-radius: 1rem;
+  margin: 1.2rem 0;
+  padding: .6rem;
+  background-color: lightgrey;
+  max-width: auto;
+}
+
+#contact h2 {
+  text-align: center;
+}
+
+img{
+  display: none;
+}
+
+footer{
+  height: 100px;
+  margin-top: 1.2rem;
+  background-color: burlywood;
+  text-align: center;
+}
+/** ----- MEDIA QUERIES ----- **/
+
+@media only screen and (min-device-width: 768px) {
+  img {
+    display: initial;
+  }
+
+  .flex-item {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  #centre_interets{
+    width: 30%;
+    height: 100%;
+  }
+
+  #contact{
+    width: 65%;
+  }
+  
+}
