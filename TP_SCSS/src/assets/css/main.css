@@ -87,7 +87,8 @@ nav div {
   align-items: center;
   font-size: 1.6rem;
 }
-.nav-items nav, .nav-items .border-right {
+.nav-items nav,
+.nav-items .border-right {
   padding: 0 1.5rem;
   border-right: 1px solid rgba(128, 128, 128, 0.688);
   height: 4rem;
@@ -121,6 +122,68 @@ nav div {
 .social-icons i:hover {
   background-color: #ffffff;
   color: #e6007e;
+}
+
+.banniere div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.banniere h1 {
+  font-size: 3rem;
+  font-weight: bold;
+  padding-bottom: 30px;
+}
+.banniere p {
+  font-size: 1.5rem;
+}
+.banniere img {
+  width: 100%;
+}
+
+main > div {
+  display: flex;
+  justify-content: space-around;
+  margin: 50px 300px;
+}
+main > div .col-left {
+  max-width: 55%;
+  padding-right: 100px;
+  border-right: 5px solid rgba(128, 128, 128, 0.688);
+}
+main > div aside {
+  max-width: 35%;
+}
+
+h2 {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #00355f;
+}
+
+.info {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto 1fr;
+  border: 2px solid rgba(128, 128, 128, 0.688);
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  border-left: 5px solid #00355f;
+  padding: 10px 50px 20px 10px;
+  height: 100px;
+}
+.info .flex-event {
+  display: flex;
+  justify-content: space-between;
+}
+.info b {
+  font-weight: bold;
+  color: #00355f;
 }
 
 /*# sourceMappingURL=main.css.map */

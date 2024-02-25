@@ -18,10 +18,10 @@
     <header>
       <section class="navbar">
         <img
-        class="logo"
-        src="./assets/images/label_systematic.png"
-        alt="Logo label systématique"
-      />
+          class="logo"
+          src="./assets/images/label_systematic.png"
+          alt="Logo label systématique"
+        />
         <div class="nav-items">
           <nav>
             <div></div>
@@ -38,9 +38,9 @@
           <button type="button">ADHERER AU PÔLE</button>
         </div>
       </section>
-      <section>
+      <section class="banniere">
         <div>
-          <h1>Événements</h1>
+          <h1><b>Événements</b></h1>
           <p>Accueil / Événements / Nom de l'événement</p>
         </div>
         <img src="./assets/images/banniere.jpg" alt="" />
@@ -48,17 +48,21 @@
     </header>
     <main>
       <div>
-        <article>
+        <article class="col-left">
           <section class="info">
-            <h2>Nom de l'évènement</h2>
-            <ul>
-              <li><strong>Date :</strong></li>
-              <li><strong>Organisateur</strong></li>
-              <li><strong>Horaires :</strong></li>
-              <li><strong>Prix :</strong></li>
-              <li><strong>Adresse :</strong></li>
-              <li><button>EN SAVOIR PLUS</button></li>
-            </ul>
+            <h2 class="name-event">Nom de l'évènement</h2>
+            <div class="flex-event">
+              <ul>
+                <li><b>DATE :</b>23 FEVRIER - 25 FEVRIER 2024</li>
+                <li><b>HORAIRES :</b> 9H00 - 18H00</li>
+                <li><b>ADRESSE :</b>DIGINAMIC - MONTPELLIER, 34000</li>
+              </ul>
+              <ul>
+                <li><b>ORGANISATEUR :</b>DIGINAMIC</li>
+                <li><b>PRIX :</b>0€</li>
+                <li><button>EN SAVOIR PLUS</button></li>
+              </ul>
+            </div>
           </section>
           <section class="event-category">
             <h3>HUBS & ENJEUX</h3>
@@ -131,7 +135,7 @@
             </section>
           </div>
         </article>
-        <aside>
+        <aside class="col-right">
           <section class="next-events">
             <h2>Évènements à venir</h2>
             <div>
