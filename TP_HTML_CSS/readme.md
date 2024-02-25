@@ -17,7 +17,7 @@ J'ai commencé par le fichier **CV_ValentinFurcy.html** en respectant la sémant
 
     * Eléments sémantiques tel que form, label etc.., ce qui permet d'améliorer l'accessibilité aux technologies d'assistance.
 
-    * Utilisation de l'outil accessibility developer tools du navigateur avec une note  de l'audit a 100.
+    * Utilisation de l'outil accessibility developer tools du navigateur avec une note de l'audit a 100.
 
 ## Validation :
 
