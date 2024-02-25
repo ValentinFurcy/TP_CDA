@@ -284,3 +284,22 @@ h2 {
   }
  
 }
+
+.categories{
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 10 * 1fr;
+
+  h2{
+    border-bottom: token.$border;
+    padding-bottom: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  li{
+    @include category(token.$secondary);
+    margin-bottom: 1rem;
+    width: 220px;
+    text-align: left;
+  }
+}
