@@ -100,7 +100,6 @@ nav div {
   background-color: token.$secondary;
   padding: 0.5rem;
   border-radius: 5px;
-  width: 9rem;
   text-align: center;
   color: white;
 }
@@ -215,10 +214,11 @@ h2 {
   h3 {
     font-weight: bold;
     color: token.$secondary;
-    padding-bottom: .8rem;
+    padding-bottom: 0.8rem;
   }
   .category {
     @include category(token.$secondary);
+    width: 9rem;
   }
 }
 
@@ -227,16 +227,16 @@ h2 {
     width: 100%;
     margin-bottom: 1.5rem;
   }
-  .resume{
+  .resume {
     font-weight: bold;
     color: token.$secondary;
     margin-bottom: 1.5rem;
     text-align: justify;
   }
-  .detail{
+  .detail {
     color: token.$text-color;
     text-align: justify;
-    b{
+    b {
       font-weight: bold;
     }
   }
@@ -245,61 +245,88 @@ h2 {
   margin-bottom: 1.5rem;
 }
 
-.event-tags{
+.event-tags {
   color: token.$text-color;
   font-weight: bold;
-  a{
+  a {
     color: token.$primary;
   }
   margin-bottom: 1.5rem;
 }
 
-#inscription{
+#inscription {
   border: solid token.$primary;
   border-radius: 10px;
   background-color: token.$primary;
   height: 250px;
   padding: 0 100px;
+  margin-bottom: 2rem;
 
   display: grid;
   grid-template-columns: 0.5fr 0.7fr;
   align-items: center;
   justify-content: space-around;
-  
 
   color: #ffffff;
- h3{
-  font-weight: bold;
-  padding-bottom: 1rem;
- }
- p{
-  text-align: justify;
-  padding-bottom: 1rem;
- }
-  button{
+  h3 {
+    font-weight: bold;
+    padding-bottom: 1rem;
+  }
+  p {
+    text-align: justify;
+    padding-bottom: 1rem;
+  }
+  button {
     @include button(#ffffff, token.$secondary, 25px);
     background-color: #ffffff;
     color: token.$primary;
     width: 200px;
   }
- 
 }
 
-.categories{
+.categories {
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: 10 * 1fr;
 
-  h2{
+  h2 {
     border-bottom: token.$border;
     padding-bottom: 1.5rem;
     margin-bottom: 1.5rem;
   }
 
-  li{
-    @include category(token.$secondary);
+  li {
+    @include category(token.$primary);
     margin-bottom: 1rem;
-    width: 220px;
+    width: 250px;
     text-align: left;
   }
+}
+
+.map {
+  width: 100%;
+  height: auto;
+  padding-bottom: 2rem;
+  border-bottom: token.$border ;
+}
+
+.socials{
+  display: flex;
+  padding-top: 2rem ;
+  p{
+    font-weight: bold;
+    font-size: 1.5rem;
+    color: token.$secondary;
+    margin-right: 1rem;
+  }
+  div{
+    i{
+      @include button(token.$primary, #ffffff, 50%);
+    }
+  }
+}
+
+footer{
+  height: 200px;
+  background-color:#26272A ;
 }

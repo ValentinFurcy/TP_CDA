@@ -261,9 +261,9 @@ h2 {
   background-color: #00355f;
   padding: 0.5rem;
   border-radius: 5px;
-  width: 9rem;
   text-align: center;
   color: white;
+  width: 9rem;
 }
 
 .event-description {
@@ -304,6 +304,7 @@ h2 {
   background-color: #e6007e;
   height: 250px;
   padding: 0 100px;
+  margin-bottom: 2rem;
   display: grid;
   grid-template-columns: 0.5fr 0.7fr;
   align-items: center;
@@ -346,12 +347,44 @@ h2 {
   background-color: #00355f;
   padding: 0.5rem;
   border-radius: 5px;
-  width: 9rem;
   text-align: center;
   color: white;
   margin-bottom: 1rem;
-  width: 220px;
+  width: 250px;
   text-align: left;
+}
+
+.map {
+  width: 100%;
+  height: auto;
+  padding-bottom: 2rem;
+  border-bottom: 2px solid rgba(128, 128, 128, 0.688);
+}
+
+.socials {
+  display: flex;
+  padding-top: 2rem;
+}
+.socials p {
+  font-weight: bold;
+  font-size: 1.5rem;
+  color: #00355f;
+  margin-right: 1rem;
+}
+.socials div i {
+  background-color: #e6007e;
+  padding: 0.7rem;
+  border-radius: 50%;
+  color: white;
+}
+.socials div i:hover {
+  background-color: #ffffff;
+  color: #e6007e;
+}
+
+footer {
+  height: 200px;
+  background-color: #26272A;
 }
 
 /*# sourceMappingURL=main.css.map */
