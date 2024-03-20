@@ -3,8 +3,16 @@
   "WorkspaceRootPath": "C:\\Users\\Diginamic\\Desktop\\TP_CDA\\TPVehicule\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{C48147BC-C87C-4EB9-937E-BBFAE31CC7CF}|TPVehiculeTests\\TPVehiculeTests.csproj|c:\\users\\diginamic\\desktop\\tp_cda\\tpvehicule\\tpvehiculetests\\tools\\vehiclehelpertests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C48147BC-C87C-4EB9-937E-BBFAE31CC7CF}|TPVehiculeTests\\TPVehiculeTests.csproj|solutionrelative:tpvehiculetests\\tools\\vehiclehelpertests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{96265CE8-323F-4B36-8828-E3D104AB0B65}|TPVehicule\\TPVehicule.csproj|c:\\users\\diginamic\\desktop\\tp_cda\\tpvehicule\\tpvehicule\\tools\\vehiclehelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{96265CE8-323F-4B36-8828-E3D104AB0B65}|TPVehicule\\TPVehicule.csproj|solutionrelative:tpvehicule\\tools\\vehiclehelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{96265CE8-323F-4B36-8828-E3D104AB0B65}|TPVehicule\\TPVehicule.csproj|c:\\users\\diginamic\\desktop\\tp_cda\\tpvehicule\\tpvehicule\\tools\\consolehelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{96265CE8-323F-4B36-8828-E3D104AB0B65}|TPVehicule\\TPVehicule.csproj|solutionrelative:tpvehicule\\tools\\consolehelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{35F0AB94-05BA-4119-A093-1FAF61087027}|Entities\\Entities.csproj|c:\\users\\diginamic\\desktop\\tp_cda\\tpvehicule\\entities\\truck.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{35F0AB94-05BA-4119-A093-1FAF61087027}|Entities\\Entities.csproj|solutionrelative:entities\\truck.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{C48147BC-C87C-4EB9-937E-BBFAE31CC7CF}|TPVehiculeTests\\TPVehiculeTests.csproj|c:\\users\\diginamic\\desktop\\tp_cda\\tpvehicule\\tpvehiculetests\\crudcartests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -25,10 +33,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{96265CE8-323F-4B36-8828-E3D104AB0B65}|TPVehicule\\TPVehicule.csproj|c:\\users\\diginamic\\desktop\\tp_cda\\tpvehicule\\tpvehicule\\crudtruck.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{96265CE8-323F-4B36-8828-E3D104AB0B65}|TPVehicule\\TPVehicule.csproj|solutionrelative:tpvehicule\\crudtruck.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{35F0AB94-05BA-4119-A093-1FAF61087027}|Entities\\Entities.csproj|c:\\users\\diginamic\\desktop\\tp_cda\\tpvehicule\\entities\\truck.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{35F0AB94-05BA-4119-A093-1FAF61087027}|Entities\\Entities.csproj|solutionrelative:entities\\truck.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -38,11 +42,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 373,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 5,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 2,
               "Title": "Truck.cs",
               "DocumentMoniker": "C:\\Users\\Diginamic\\Desktop\\TP_CDA\\TPVehicule\\Entities\\Truck.cs",
               "RelativeDocumentMoniker": "Entities\\Truck.cs",
@@ -51,11 +55,12 @@
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAAAJAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-03-19T06:39:39.847Z",
-              "IsPinned": true
+              "IsPinned": true,
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 5,
               "Title": "Car.cs",
               "DocumentMoniker": "C:\\Users\\Diginamic\\Desktop\\TP_CDA\\TPVehicule\\Entities\\Car.cs",
               "RelativeDocumentMoniker": "Entities\\Car.cs",
@@ -64,12 +69,11 @@
               "ViewState": "AQIAAAAAAAAAAAAAAAAAABEAAAABAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-03-19T06:39:48.882Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "IsPinned": true
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 7,
               "Title": "CRUDTruck.cs",
               "DocumentMoniker": "C:\\Users\\Diginamic\\Desktop\\TP_CDA\\TPVehicule\\TPVehicule\\CRUDTruck.cs",
               "RelativeDocumentMoniker": "TPVehicule\\CRUDTruck.cs",
@@ -82,7 +86,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 6,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\Diginamic\\Desktop\\TP_CDA\\TPVehicule\\TPVehicule\\Program.cs",
               "RelativeDocumentMoniker": "TPVehicule\\Program.cs",
@@ -91,25 +95,37 @@
               "ViewState": "AQIAAAMAAAAAAAAAAAAAAGwAAABVAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-03-19T06:31:04.561Z",
-              "IsPinned": true,
+              "IsPinned": true
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "ConsoleHelper.cs",
+              "DocumentMoniker": "C:\\Users\\Diginamic\\Desktop\\TP_CDA\\TPVehicule\\TPVehicule\\Tools\\ConsoleHelper.cs",
+              "RelativeDocumentMoniker": "TPVehicule\\Tools\\ConsoleHelper.cs",
+              "ToolTip": "C:\\Users\\Diginamic\\Desktop\\TP_CDA\\TPVehicule\\TPVehicule\\Tools\\ConsoleHelper.cs",
+              "RelativeToolTip": "TPVehicule\\Tools\\ConsoleHelper.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-20T14:38:18.94Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "VehicleHelperTests.cs",
-              "DocumentMoniker": "C:\\Users\\Diginamic\\Desktop\\TP_CDA\\TPVehicule\\TPVehiculeTests\\Tools\\VehicleHelperTests.cs",
-              "RelativeDocumentMoniker": "TPVehiculeTests\\Tools\\VehicleHelperTests.cs",
-              "ToolTip": "C:\\Users\\Diginamic\\Desktop\\TP_CDA\\TPVehicule\\TPVehiculeTests\\Tools\\VehicleHelperTests.cs",
-              "RelativeToolTip": "TPVehiculeTests\\Tools\\VehicleHelperTests.cs",
-              "ViewState": "AQIAAAgAAAAAAAAAAAAAACEAAAABAAAA",
+              "Title": "VehicleHelper.cs",
+              "DocumentMoniker": "C:\\Users\\Diginamic\\Desktop\\TP_CDA\\TPVehicule\\TPVehicule\\Tools\\VehicleHelper.cs",
+              "RelativeDocumentMoniker": "TPVehicule\\Tools\\VehicleHelper.cs",
+              "ToolTip": "C:\\Users\\Diginamic\\Desktop\\TP_CDA\\TPVehicule\\TPVehicule\\Tools\\VehicleHelper.cs",
+              "RelativeToolTip": "TPVehicule\\Tools\\VehicleHelper.cs",
+              "ViewState": "AQIAAFQBAAAAAAAAAAAAwHUBAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-20T09:53:19.607Z",
+              "WhenOpened": "2024-03-20T14:38:18.2Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
               "Title": "CRUDCarTests.cs",
               "DocumentMoniker": "C:\\Users\\Diginamic\\Desktop\\TP_CDA\\TPVehicule\\TPVehiculeTests\\CRUDCarTests.cs",
               "RelativeDocumentMoniker": "TPVehiculeTests\\CRUDCarTests.cs",
@@ -117,8 +133,7 @@
               "RelativeToolTip": "TPVehiculeTests\\CRUDCarTests.cs",
               "ViewState": "AQIAAAEAAAAAAAAAAAAAAB0AAAABAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-20T13:23:16.568Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-03-20T13:23:16.568Z"
             }
           ]
         },
@@ -128,7 +143,7 @@
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 4,
               "Title": "CRUDCar.cs",
               "DocumentMoniker": "C:\\Users\\Diginamic\\Desktop\\TP_CDA\\TPVehicule\\TPVehicule\\CRUDCar.cs",
               "RelativeDocumentMoniker": "TPVehicule\\CRUDCar.cs",

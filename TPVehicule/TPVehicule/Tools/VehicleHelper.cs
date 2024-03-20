@@ -364,7 +364,7 @@ namespace TPVehicule.Tools
             var fileContent = File.ReadAllText("vehicles.json");
             var vehicles = JsonSerializer.Deserialize<List<Vehicle>>(fileContent);
             ForegroundColor = ConsoleColor.Green;
-            WriteLine("fichier déserialisé avec succès");
+            WriteLine("fichier importé avec succès");
             ForegroundColor = ConsoleColor.White;
             return ListVehicles.vehicles = vehicles;
 

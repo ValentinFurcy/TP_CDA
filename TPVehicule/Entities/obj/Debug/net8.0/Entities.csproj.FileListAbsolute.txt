@@ -10,3 +10,15 @@ C:\Users\vfurc\Desktop\TP_CDA\TPVehicule\Entities\obj\Debug\net8.0\Entities.dll
 C:\Users\vfurc\Desktop\TP_CDA\TPVehicule\Entities\obj\Debug\net8.0\refint\Entities.dll
 C:\Users\vfurc\Desktop\TP_CDA\TPVehicule\Entities\obj\Debug\net8.0\Entities.pdb
 C:\Users\vfurc\Desktop\TP_CDA\TPVehicule\Entities\obj\Debug\net8.0\ref\Entities.dll
+C:\Users\Diginamic\Desktop\TP_CDA\TPVehicule\Entities\bin\Debug\net8.0\Entities.deps.json
+C:\Users\Diginamic\Desktop\TP_CDA\TPVehicule\Entities\bin\Debug\net8.0\Entities.dll
+C:\Users\Diginamic\Desktop\TP_CDA\TPVehicule\Entities\bin\Debug\net8.0\Entities.pdb
+C:\Users\Diginamic\Desktop\TP_CDA\TPVehicule\Entities\obj\Debug\net8.0\Entities.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Diginamic\Desktop\TP_CDA\TPVehicule\Entities\obj\Debug\net8.0\Entities.AssemblyInfoInputs.cache
+C:\Users\Diginamic\Desktop\TP_CDA\TPVehicule\Entities\obj\Debug\net8.0\Entities.AssemblyInfo.cs
+C:\Users\Diginamic\Desktop\TP_CDA\TPVehicule\Entities\obj\Debug\net8.0\Entities.csproj.CoreCompileInputs.cache
+C:\Users\Diginamic\Desktop\TP_CDA\TPVehicule\Entities\obj\Debug\net8.0\Entities.sourcelink.json
+C:\Users\Diginamic\Desktop\TP_CDA\TPVehicule\Entities\obj\Debug\net8.0\Entities.dll
+C:\Users\Diginamic\Desktop\TP_CDA\TPVehicule\Entities\obj\Debug\net8.0\refint\Entities.dll
+C:\Users\Diginamic\Desktop\TP_CDA\TPVehicule\Entities\obj\Debug\net8.0\Entities.pdb
+C:\Users\Diginamic\Desktop\TP_CDA\TPVehicule\Entities\obj\Debug\net8.0\ref\Entities.dll
