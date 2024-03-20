@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using static TPVehicule.Tools.ConsoleHelper;
 using Entities;
 using static System.Console;
+using TPVehicule.Tools;
 
 namespace TPVehicule
 {
@@ -13,7 +14,7 @@ namespace TPVehicule
     {
       
         public static void CreateCar()
-        {
+        {          
             Car c = new Car()
             {
                 Marque = GetStringFromConsole("saisir la marque de la voiture"),
@@ -21,8 +22,7 @@ namespace TPVehicule
                 Numero = GetStringFromConsole("saisir le numéro du véhicule (longueur comprise entre 4 et 6 charactéres, numérique uniquement)"),
                 Puissance = GetIntFromConsole("saisir la puissance")
             };
-
-            ListVehicles.vehicles.Add(c);
+            if(!c.Numero.VehicleIsExist()) ListVehicles.vehicles.Add(c);
 
             WriteLine($"voiture crée : {c.ToString()}");
         }

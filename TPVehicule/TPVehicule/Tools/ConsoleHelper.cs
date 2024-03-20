@@ -10,6 +10,11 @@ namespace TPVehicule.Tools
 {
     public static class ConsoleHelper
     {
+        /// <summary>
+        /// récupère la saisie de l'utilisateur, vérifie quelle soit pas null ou qu'avec des espaces
+        /// </summary>
+        /// <param name="label"></param>
+        /// <returns> retourne la saisie en string</returns>
         public static string GetStringFromConsole(string label)
         {
             WriteLine(label);
@@ -22,7 +27,11 @@ namespace TPVehicule.Tools
             }
             return input;
         }
-
+        /// <summary>
+        /// récupère la saisie numérique de l'utilisateur sous forme de string
+        /// </summary>
+        /// <param name="label"></param>
+        /// <returns>retourne la saisie sous forme de int</returns>
         public static int GetIntFromConsole(string label) 
         {
             int inputNumber;
@@ -35,25 +44,6 @@ namespace TPVehicule.Tools
             }
 
             return inputNumber;
-        }
-
-        public static bool VerifInputNumberVehicle(this string numVehicle) 
-        {
-            if (!string.IsNullOrEmpty(numVehicle) && numVehicle.Length >= 4 && numVehicle.Length <= 6)
-            {
-                bool isValid = true;
-
-                foreach (char c in numVehicle)
-                {
-                    if (!char.IsDigit(c))
-                    {
-                        isValid = false;
-                        break;
-                    }
-                }
-                return isValid ? true : throw new Exception("Le numéros doit contenir entre 4 et 6 caratères numériques uniquement");               
-            }
-            else throw new Exception("Le numéros doit contenir entre 4 et 6 caratères numériques");
         }
 
         public static void ExitConsoleApp()

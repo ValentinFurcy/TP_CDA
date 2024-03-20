@@ -5,6 +5,7 @@ using static TPVehicule.CRUDCar;
 using static TPVehicule.CRUDTruck;
 using static TPVehicule.Tools.VehicleHelper;
 using static System.Runtime.InteropServices.JavaScript.JSType;
+using System.Reflection;
 
 void choiceMenu()
 {
@@ -17,8 +18,9 @@ void choiceMenu()
     WriteLine("6 - Modifier un camion");
     WriteLine("7 - Supprimer un véhicule");
     WriteLine("8 - Trier les véhicules");
-    WriteLine("9 - Sauvegarder les véhicules");
-    WriteLine("10 - Importer les véhicules");
+    WriteLine("9 - Filtrer les véhicules");
+    WriteLine("10 - Sauvegarder les véhicules");
+    WriteLine("11 - Importer les véhicules");
     WriteLine("0 - Sortir du programme\n");
 }
 void app()
@@ -99,17 +101,38 @@ void app()
                     {
                         GetAllCars();
                         var numCar = GetStringFromConsole("saisir le numéro de la voiture a supprimer");
-                        var confirm = GetStringFromConsole($"Etes vous sur de vouloir supprimer le véhicule n° : {numCar} (o / n)");
-                        if (confirm.ToLower().Equals("o")) DeleteCar(numCar);
-                        else WriteLine("Suppression annulée. Le véhicule n'a pas été supprimé.");
+                        try
+                        {
+                            if (numCar.VerifInputNumberVehicle())
+                            {
+                                var confirm = GetStringFromConsole($"Etes vous sur de vouloir supprimer le véhicule n° : {numCar} (o / n)");
+                                if (confirm.ToLower().Equals("o")) DeleteCar(numCar);
+                                else WriteLine("Suppression annulée. Le véhicule n'a pas été supprimé.");
+                            }
+                        }
+                        catch (Exception e)
+                        {
+                            WriteLine(e.Message);
+                        }
+
                     }
                     else if (vehiculeToDelete.ToLower().Equals("c"))
                     {
                         GetAllTrucks();
                         var numTruck = GetStringFromConsole("saisir le numéro du camion a supprimer");
-                        var confirm = GetStringFromConsole($"Etes vous sur de vouloir supprimer le véhicule n° : {numTruck} (o / n)");
-                        if (confirm.ToLower().Equals("o")) DeleteTruck(numTruck);
-                        else WriteLine("Suppression annulée. Le véhicule n'a pas été supprimé.");
+                        try
+                        {
+                            if (numTruck.VerifInputNumberVehicle())
+                            {
+                                var confirm = GetStringFromConsole($"Etes vous sur de vouloir supprimer le véhicule n° : {numTruck} (o / n)");
+                                if (confirm.ToLower().Equals("o")) DeleteTruck(numTruck);
+                                else WriteLine("Suppression annulée. Le véhicule n'a pas été supprimé.");
+                            }
+                        }
+                        catch (Exception e)
+                        {
+                            WriteLine(e.Message);
+                        }
                     }
                     else WriteLine("saisie incorrect");
                 }
@@ -155,9 +178,51 @@ void app()
                 else WriteLine("veuillez saisir une valeur");
                 break;
             case 9:
+                WriteLine("Quelle filtre effectuer ? ");
+                WriteLine("1 - Par marque");
+                WriteLine("2 - Par modéle");
+                WriteLine("3 - Afficher les voitures avec une puissance <= 120");
+                WriteLine("4 - Afficher les voitures avec une puissance > 120");
+                WriteLine("5 - Afficher les camions avec un poids < 2000");
+                WriteLine("6 - Afficher les camions avec un poids > 2000");
+                WriteLine();
+                var choiceFilter = GetIntFromConsole("saisir la valeur du choix du tri");
+                if (choiceFilter != null)
+                {
+                    switch (choiceFilter)
+                    {
+                        case 1:
+                            GetAllMarqueVehicle();
+                            var marque = GetStringFromConsole("saisir la marque");
+                            GetVehicleByMarque(marque);
+                            break;
+                        case 2:
+                            var modele = GetStringFromConsole("saisir le modele");
+                            GetVehicleByModele(modele);
+                            break;
+                        case 3:
+                            GetCarByPuissanceInf(120);
+                            break;
+                        case 4:
+                            GetCarByPuissanceSup(120);
+                            break;
+                        case 5:
+                            GetTruckByPoidsInf(2000);
+                            break;
+                        case 6:
+                            GetTruckByPoidsSup(2000);
+                            break;
+                        default:
+                            WriteLine("choix invalide");
+                            break;
+                    }
+                }
+                else WriteLine("veuillez saisir une valeur");
+                break;
+            case 10:
                 SerializerVehicles();
                 break;
-                case 10:
+            case 11:
                 DeserializerVehicles();
                 break;
             default:

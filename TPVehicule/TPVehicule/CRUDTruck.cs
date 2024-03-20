@@ -7,6 +7,7 @@ using static TPVehicule.Tools.ConsoleHelper;
 using Entities;
 using static System.Console;
 using static System.Runtime.InteropServices.JavaScript.JSType;
+using TPVehicule.Tools;
 
 namespace TPVehicule
 {
@@ -22,8 +23,7 @@ namespace TPVehicule
                 Poids = GetIntFromConsole("saisir le poids")
             };
 
-
-            ListVehicles.vehicles.Add(t);
+            if (!t.Numero.VehicleIsExist()) ListVehicles.vehicles.Add(t);
 
             WriteLine($"camion crée : {t.ToString()}");
         }

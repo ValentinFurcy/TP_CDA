@@ -1,24 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\vfurc\\Desktop\\TP_CDA\\TPVehicule\\TPVehicule\\TPVehicule.csproj": {}
+    "C:\\Users\\Diginamic\\Desktop\\TP_CDA\\TPVehicule\\TPVehicule\\TPVehicule.csproj": {}
   },
   "projects": {
-    "C:\\Users\\vfurc\\Desktop\\TP_CDA\\TPVehicule\\Entities\\Entities.csproj": {
+    "C:\\Users\\Diginamic\\Desktop\\TP_CDA\\TPVehicule\\Entities\\Entities.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\vfurc\\Desktop\\TP_CDA\\TPVehicule\\Entities\\Entities.csproj",
+        "projectUniqueName": "C:\\Users\\Diginamic\\Desktop\\TP_CDA\\TPVehicule\\Entities\\Entities.csproj",
         "projectName": "Entities",
-        "projectPath": "C:\\Users\\vfurc\\Desktop\\TP_CDA\\TPVehicule\\Entities\\Entities.csproj",
-        "packagesPath": "C:\\Users\\vfurc\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\vfurc\\Desktop\\TP_CDA\\TPVehicule\\Entities\\obj\\",
+        "projectPath": "C:\\Users\\Diginamic\\Desktop\\TP_CDA\\TPVehicule\\Entities\\Entities.csproj",
+        "packagesPath": "C:\\Users\\Diginamic\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Diginamic\\Desktop\\TP_CDA\\TPVehicule\\Entities\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\vfurc\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\Diginamic\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -26,7 +22,6 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -65,25 +60,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.202/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.200/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\vfurc\\Desktop\\TP_CDA\\TPVehicule\\TPVehicule\\TPVehicule.csproj": {
+    "C:\\Users\\Diginamic\\Desktop\\TP_CDA\\TPVehicule\\TPVehicule\\TPVehicule.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\vfurc\\Desktop\\TP_CDA\\TPVehicule\\TPVehicule\\TPVehicule.csproj",
+        "projectUniqueName": "C:\\Users\\Diginamic\\Desktop\\TP_CDA\\TPVehicule\\TPVehicule\\TPVehicule.csproj",
         "projectName": "TPVehicule",
-        "projectPath": "C:\\Users\\vfurc\\Desktop\\TP_CDA\\TPVehicule\\TPVehicule\\TPVehicule.csproj",
-        "packagesPath": "C:\\Users\\vfurc\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\vfurc\\Desktop\\TP_CDA\\TPVehicule\\TPVehicule\\obj\\",
+        "projectPath": "C:\\Users\\Diginamic\\Desktop\\TP_CDA\\TPVehicule\\TPVehicule\\TPVehicule.csproj",
+        "packagesPath": "C:\\Users\\Diginamic\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Diginamic\\Desktop\\TP_CDA\\TPVehicule\\TPVehicule\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\vfurc\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\Diginamic\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -91,15 +82,14 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\vfurc\\Desktop\\TP_CDA\\TPVehicule\\Entities\\Entities.csproj": {
-                "projectPath": "C:\\Users\\vfurc\\Desktop\\TP_CDA\\TPVehicule\\Entities\\Entities.csproj"
+              "C:\\Users\\Diginamic\\Desktop\\TP_CDA\\TPVehicule\\Entities\\Entities.csproj": {
+                "projectPath": "C:\\Users\\Diginamic\\Desktop\\TP_CDA\\TPVehicule\\Entities\\Entities.csproj"
               }
             }
           }
@@ -134,7 +124,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.202/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.200/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
