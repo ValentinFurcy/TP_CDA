@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\buildMultiTargeting\TP_API_Wiky_Auth.props" />
+</Project>

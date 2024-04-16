@@ -1,0 +1,37 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\vfurc\\Desktop\\TP_CDA\\TP_API_Wiky_Auth\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{18CF3737-3407-4A0A-87EF-B856813EFD6A}|Repositories\\Repositories.csproj|c:\\users\\vfurc\\desktop\\tp_cda\\tp_api_wiky_auth\\repositories\\context\\wikydbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{18CF3737-3407-4A0A-87EF-B856813EFD6A}|Repositories\\Repositories.csproj|solutionrelative:repositories\\context\\wikydbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 388,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "WikyDbContext.cs",
+              "DocumentMoniker": "C:\\Users\\vfurc\\Desktop\\TP_CDA\\TP_API_Wiky_Auth\\Repositories\\Context\\WikyDbContext.cs",
+              "RelativeDocumentMoniker": "Repositories\\Context\\WikyDbContext.cs",
+              "ToolTip": "C:\\Users\\vfurc\\Desktop\\TP_CDA\\TP_API_Wiky_Auth\\Repositories\\Context\\WikyDbContext.cs",
+              "RelativeToolTip": "Repositories\\Context\\WikyDbContext.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABEAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-16T22:18:56.27Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

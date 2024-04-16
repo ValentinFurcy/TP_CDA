@@ -1,0 +1,6 @@
+@TP_API_Wiky_Auth_HostAddress = http://localhost:5264
+
+GET {{TP_API_Wiky_Auth_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

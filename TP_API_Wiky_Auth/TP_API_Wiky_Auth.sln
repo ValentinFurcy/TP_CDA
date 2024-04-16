@@ -1,0 +1,61 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34723.18
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TP_API_Wiky_Auth", "TP_API_Wiky_Auth\TP_API_Wiky_Auth.csproj", "{BBD819A3-1F9D-4FCE-A81B-D129AA9F7368}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Models", "Models\Models.csproj", "{3028ED85-C7CE-4B61-ADF6-5A9B47A609CE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Repositories", "Repositories\Repositories.csproj", "{18CF3737-3407-4A0A-87EF-B856813EFD6A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DTOs", "DTOs\DTOs.csproj", "{F86D5330-4C87-48F1-979E-D0F1382520CF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IRepositories", "IRepository\IRepositories.csproj", "{7E9B178A-2930-4EB9-8FCA-7345A3975238}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IServices", "IServices\IServices.csproj", "{59BAE709-A075-41C9-8BE5-757EE96A35E9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Services", "Services\Services.csproj", "{4043911E-C9A6-46FC-978C-5182E2BDF5FB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BBD819A3-1F9D-4FCE-A81B-D129AA9F7368}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BBD819A3-1F9D-4FCE-A81B-D129AA9F7368}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BBD819A3-1F9D-4FCE-A81B-D129AA9F7368}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BBD819A3-1F9D-4FCE-A81B-D129AA9F7368}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3028ED85-C7CE-4B61-ADF6-5A9B47A609CE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3028ED85-C7CE-4B61-ADF6-5A9B47A609CE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3028ED85-C7CE-4B61-ADF6-5A9B47A609CE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3028ED85-C7CE-4B61-ADF6-5A9B47A609CE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{18CF3737-3407-4A0A-87EF-B856813EFD6A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{18CF3737-3407-4A0A-87EF-B856813EFD6A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{18CF3737-3407-4A0A-87EF-B856813EFD6A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{18CF3737-3407-4A0A-87EF-B856813EFD6A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F86D5330-4C87-48F1-979E-D0F1382520CF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F86D5330-4C87-48F1-979E-D0F1382520CF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F86D5330-4C87-48F1-979E-D0F1382520CF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F86D5330-4C87-48F1-979E-D0F1382520CF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7E9B178A-2930-4EB9-8FCA-7345A3975238}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7E9B178A-2930-4EB9-8FCA-7345A3975238}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7E9B178A-2930-4EB9-8FCA-7345A3975238}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7E9B178A-2930-4EB9-8FCA-7345A3975238}.Release|Any CPU.Build.0 = Release|Any CPU
+		{59BAE709-A075-41C9-8BE5-757EE96A35E9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{59BAE709-A075-41C9-8BE5-757EE96A35E9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{59BAE709-A075-41C9-8BE5-757EE96A35E9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{59BAE709-A075-41C9-8BE5-757EE96A35E9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4043911E-C9A6-46FC-978C-5182E2BDF5FB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4043911E-C9A6-46FC-978C-5182E2BDF5FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4043911E-C9A6-46FC-978C-5182E2BDF5FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4043911E-C9A6-46FC-978C-5182E2BDF5FB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {9D8A52E4-4BB5-4B83-85D4-69275739BEED}
+	EndGlobalSection
+EndGlobal

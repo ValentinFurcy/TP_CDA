@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>TP_API_Wiky_Auth</name>
+    </assembly>
+    <members>
+        <member name="M:TP_API_Wiky_Auth.Controllers.UserController.RegisterUser(DTOs.UserRegisterDTO)">
+            <summary>
+            Register User
+            </summary>
+            <returns></returns>
+        </member>
+    </members>
+</doc>
