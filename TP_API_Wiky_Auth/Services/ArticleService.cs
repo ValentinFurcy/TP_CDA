@@ -1,9 +1,12 @@
-﻿using DTOs;
+﻿using DTOs.ArticleDTOs;
 using IRepository;
 using IServices;
+using Microsoft.AspNetCore.Identity;
 using Models;
+using Models.Exceptions;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,15 +17,19 @@ namespace Services
     public class ArticleService : IArticleService
     {
         IArticleRepository _articleRepository;
+        
         public ArticleService(IArticleRepository articleRepository)
         {
             _articleRepository = articleRepository;
+
         }
-        public async Task<Article> CreateArticleAsync(ArticleDTO articleDTO)
+
+        public async Task<Article> CreateArticleAsync(ArticleDTO articleDTO, string userId)
         {
-            Article article = new Article 
-            { 
-                Author = articleDTO.Author,
+            
+            Article article = new Article
+            {
+                UserId = userId,
                 Content = articleDTO.Content,
                 CreationDate = DateTime.Now,
                 ThemeId = articleDTO.ThemeId,
@@ -32,21 +39,40 @@ namespace Services
             return await _articleRepository.CreateArticleAsync(article);
         }
 
-        public async Task<Article> UpdateArticleAsync(ArticleUpdateDTO articleToUpdate)
+        public async Task<Article> GetArticleByIdAsync(int articleId)
         {
-            Article article = new Article
-            {
-                Id = articleToUpdate.Id,
-                Content = articleToUpdate.Content,
-                ThemeId = articleToUpdate.ThemeId,
-                Priority = articleToUpdate.Priority,
-                ModificationDate = DateTime.Now,
-            };
-            return await _articleRepository.UpdateArticleAsync(article);
+            return await _articleRepository.GetArticleById(articleId);
         }
-        public async Task<bool> DeleteArticleAsync(int articleId)
+
+        public async Task<Article> UpdateArticleAsync(ArticleUpdateDTO articleToUpdate, string? userId, bool isAdmin)
         {
-            return await _articleRepository.DeleteArticleAsync(articleId);
+            
+            var verifArticle = await GetArticleByIdAsync(articleToUpdate.Id); 
+           
+
+            if (verifArticle.UserId == userId || isAdmin)
+            {
+                Article article = new Article
+                {
+                    Id = articleToUpdate.Id,
+                    Content = articleToUpdate.Content,
+                    ThemeId = articleToUpdate.ThemeId,
+                    ModificationDate = DateTime.Now,
+                };
+
+                return await _articleRepository.UpdateArticleAsync(article);
+            }
+            else throw new MyExceptions();
+        }
+
+        public async Task<bool> DeleteArticleAsync(int articleId, string userId, bool isAdmin)
+        {
+            var verifArticle = await GetArticleByIdAsync(articleId);
+            if(verifArticle.UserId == userId ||isAdmin) 
+            {
+                return await _articleRepository.DeleteArticleAsync(articleId);
+            }
+            else throw new MyExceptions();
         }
 
         public async Task<List<Article>> GetAllArticleAsync()
@@ -54,9 +80,9 @@ namespace Services
            return await _articleRepository.GetAllArticleAsync();
         }
 
-        public async Task<Article> GetArticleAndCommentAsync(int articleId)
+        public async Task<ArticleAndCommentsDTO> GetArticleAndCommentsAsync(int articleId)
         {
-            return await _articleRepository.GetArticleAndCommentAsync(articleId);
+            return await _articleRepository.GetArticleAndCommentsAsync(articleId);
         }
 
         public async Task<List<Article>> GetArticlesByAuthorAscAsync()
@@ -88,5 +114,7 @@ namespace Services
         {
             return await _articleRepository.GetArticleTop3Async(date);
         }
+
+  
     }
 }

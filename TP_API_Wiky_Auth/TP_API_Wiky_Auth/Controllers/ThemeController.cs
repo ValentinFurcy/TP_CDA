@@ -1,4 +1,4 @@
-﻿using DTOs;
+﻿using DTOs.ThemeDTOs;
 using IServices;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;

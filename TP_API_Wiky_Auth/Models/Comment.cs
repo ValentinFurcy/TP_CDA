@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -10,7 +11,6 @@ namespace Models
     public class Comment
     {
         public int Id { get; set; }
-        public string Author { get; set; }
         public DateTime CreationDate { get; set; }
         public DateTime? ModificationDate { get; set; }
 
@@ -19,6 +19,8 @@ namespace Models
         public string UserId { get; set; }
         public AppUser User { get; set; }
         public int ArticleId { get; set; }
+
+        [DeleteBehavior(DeleteBehavior.NoAction)]
         public Article Article { get; set; }
 
     }

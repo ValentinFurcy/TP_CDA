@@ -1,11 +1,14 @@
-﻿using DTOs;
+﻿using DTOs.UserDTOs;
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Models;
 using Models.CONST;
 using Repositories.Context;
 using System.Reflection.Metadata.Ecma335;
+using System.Runtime.Intrinsics.X86;
 
 namespace TP_API_Wiky_Auth.Controllers
 {
@@ -25,9 +28,11 @@ namespace TP_API_Wiky_Auth.Controllers
             _signInManager = signInManager;
             _roleManager = roleManager;
         }
+
         /// <summary>
-        /// Register User
+        /// Register User with role User
         /// </summary>
+        /// /// <param name="userRegisterDTO"></param>
         /// <returns></returns>
         [ProducesResponseType(200)]
         [ProducesResponseType(400)]
@@ -35,19 +40,21 @@ namespace TP_API_Wiky_Auth.Controllers
         [HttpPost]
         public async Task<IActionResult> RegisterUser(UserRegisterDTO userRegisterDTO)
         {
-            var today = DateTime.Now.Year;
+            var dateToday = DateOnly.FromDateTime(DateTime.Now);
+            var year = dateToday.Year;
             var yearUser = userRegisterDTO.DateNaissance.Year;
-            var age = today - yearUser;
+            var age = year - yearUser;
 
             if (!string.IsNullOrEmpty(userRegisterDTO.Email) && !string.IsNullOrEmpty(userRegisterDTO.Password) && age > 18)
             {
                 try
                 {
-                    var user = new AppUser { UserName = userRegisterDTO.UserName, Email = userRegisterDTO.Email, DateNaissance = userRegisterDTO.DateNaissance,  };
+                    var user = new AppUser { UserName = userRegisterDTO.UserName, Email = userRegisterDTO.Email, DateNaissance = DateOnly.FromDateTime(userRegisterDTO.DateNaissance),  };
                     var result = await _userManager.CreateAsync(user, userRegisterDTO.Password);
 
                     if (result.Succeeded)
-                    {                        
+                    {
+                        await _userManager.AddToRoleAsync(user, ROLES.USER);
                         await _signInManager.SignInAsync(user, isPersistent: false);
                         return Ok("Auth !");
                     }
@@ -61,24 +68,97 @@ namespace TP_API_Wiky_Auth.Controllers
                     return StatusCode(500, $"Error : {e.Message} ");
                 }
             }
-            else if (age > 18) 
+            else if (age < 18) 
             {
                 return BadRequest("Vous devez avoir au moins 18 ans pour vous inscrire.");
             }
             else return BadRequest("Champs requis non remplis");
         }
 
-
+        /// <summary>
+        /// Create Role if not existing
+        /// </summary>
+        /// <returns></returns>
+        [ProducesResponseType(200)]
+        [ProducesResponseType(400)]
+        [ProducesResponseType(500)]
         [HttpPost]
-        public async Task<IActionResult> CreateRoleAdmin()
+        public async Task<IActionResult> CreateRole()
         {
+            if (!await _roleManager.RoleExistsAsync(ROLES.ADMIN) || !await _roleManager.RoleExistsAsync(ROLES.USER))
+            {
+                await _roleManager.CreateAsync(new IdentityRole { Name = ROLES.ADMIN, NormalizedName = ROLES.ADMIN });
 
-            await _roleManager.CreateAsync(new IdentityRole { Name = ROLES.ADMIN, NormalizedName = ROLES.ADMIN });
-            await _roleManager.CreateAsync(new IdentityRole { Name = ROLES.USER, NormalizedName = ROLES.USER });
+                await _roleManager.CreateAsync(new IdentityRole { Name = ROLES.USER, NormalizedName = ROLES.USER });
 
-            return Ok();
+                return Ok();
+            }    
+            else
+            {
+                var existingRoles = await _roleManager.Roles.Select(r => r.Name).ToListAsync();
+                return BadRequest($"Les rôles existants sont : {string.Join(", ", existingRoles)}");
+            }
+            
         }
 
+        /// <summary>
+        /// Create User with Role Admin
+        /// </summary>
+        /// <param name="userRegisterDTO"></param>
+        /// <returns></returns>
+        [ProducesResponseType(200)]
+        [ProducesResponseType(400)]
+        [ProducesResponseType(500)]
+        [HttpPost]
+        public async Task<IActionResult> RegisterAdmin(UserRegisterDTO userRegisterDTO) 
+        {
+            var dateToday = DateOnly.FromDateTime(DateTime.Now);
+            var year = dateToday.Year;
+            var yearUser = userRegisterDTO.DateNaissance.Year;
+            var age = year - yearUser;
+
+            if (!string.IsNullOrEmpty(userRegisterDTO.Email) && !string.IsNullOrEmpty(userRegisterDTO.Password) && age > 18)
+            {
+                try
+                {
+                    var user = new AppUser { UserName = userRegisterDTO.UserName, Email = userRegisterDTO.Email, DateNaissance = DateOnly.FromDateTime(userRegisterDTO.DateNaissance), };
+                    var result = await _userManager.CreateAsync(user, userRegisterDTO.Password);
+                    
+
+                    if (result.Succeeded)
+                    {
+                        await _userManager.AddToRoleAsync(user, ROLES.ADMIN);
+                        await _signInManager.SignInAsync(user, isPersistent: false);
+                        return Ok("Auth !");
+                    }
+                    else
+                    {
+                        return BadRequest("ERROR Try Again");
+                    }
+                }
+                catch (Exception e)
+                {
+                    return StatusCode(500, $"Error : {e.Message} ");
+                }
+            }
+            else if (age < 18)
+            {
+                return BadRequest("Vous devez avoir au moins 18 ans pour vous inscrire.");
+            }
+            else return BadRequest("Champs requis non remplis");
+        }
+
+        /// <summary>
+        /// Logout
+        /// </summary>
+        /// <returns></returns>
+        [HttpPost]
+        public async Task<IActionResult> Logout() 
+        { 
+            await _signInManager.SignOutAsync();
+
+            return Ok("You Is disconnect");
+        }
     }
 }
 

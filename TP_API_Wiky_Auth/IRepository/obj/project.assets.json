@@ -1194,6 +1194,24 @@
           }
         }
       },
+      "DTOs/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v8.0",
+        "dependencies": {
+          "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "8.0.4",
+          "Microsoft.EntityFrameworkCore": "8.0.4",
+          "Microsoft.EntityFrameworkCore.InMemory": "8.0.4",
+          "Microsoft.EntityFrameworkCore.SqlServer": "8.0.4",
+          "Models": "1.0.0",
+          "Swashbuckle.AspNetCore.Filters": "8.0.1"
+        },
+        "compile": {
+          "bin/placeholder/DTOs.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/DTOs.dll": {}
+        }
+      },
       "Models/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v8.0",
@@ -3187,6 +3205,11 @@
         "useSharedDesignerContext.txt"
       ]
     },
+    "DTOs/1.0.0": {
+      "type": "project",
+      "path": "../DTOs/DTOs.csproj",
+      "msbuildProject": "../DTOs/DTOs.csproj"
+    },
     "Models/1.0.0": {
       "type": "project",
       "path": "../Models/Models.csproj",
@@ -3195,13 +3218,13 @@
   },
   "projectFileDependencyGroups": {
     "net8.0": [
+      "DTOs >= 1.0.0",
       "Microsoft.EntityFrameworkCore.InMemory >= 8.0.4",
       "Models >= 1.0.0"
     ]
   },
   "packageFolders": {
-    "C:\\Users\\vfurc\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\vfurc\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
@@ -3212,12 +3235,8 @@
       "packagesPath": "C:\\Users\\vfurc\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\vfurc\\Desktop\\TP_CDA\\TP_API_Wiky_Auth\\IRepository\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
         "C:\\Users\\vfurc\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -3225,13 +3244,15 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
+            "C:\\Users\\vfurc\\Desktop\\TP_CDA\\TP_API_Wiky_Auth\\DTOs\\DTOs.csproj": {
+              "projectPath": "C:\\Users\\vfurc\\Desktop\\TP_CDA\\TP_API_Wiky_Auth\\DTOs\\DTOs.csproj"
+            },
             "C:\\Users\\vfurc\\Desktop\\TP_CDA\\TP_API_Wiky_Auth\\Models\\Models.csproj": {
               "projectPath": "C:\\Users\\vfurc\\Desktop\\TP_CDA\\TP_API_Wiky_Auth\\Models\\Models.csproj"
             }
@@ -3242,11 +3263,6 @@
         "warnAsError": [
           "NU1605"
         ]
-      },
-      "restoreAuditProperties": {
-        "enableAudit": "true",
-        "auditLevel": "low",
-        "auditMode": "direct"
       }
     },
     "frameworks": {
@@ -3274,7 +3290,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.202/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

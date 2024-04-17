@@ -9,6 +9,6 @@ namespace Models
 {
     public class AppUser : IdentityUser
     {
-        public DateTime DateNaissance {  get; set; }
+        public DateOnly DateNaissance {  get; set; }
     }
 }

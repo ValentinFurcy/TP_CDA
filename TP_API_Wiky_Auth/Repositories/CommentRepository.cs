@@ -1,4 +1,5 @@
-﻿using IRepositories;
+﻿using DTOs.CommentDTOs;
+using IRepositories;
 using Microsoft.EntityFrameworkCore;
 using Models;
 using Repositories.Context;
@@ -35,15 +36,37 @@ namespace Repositories
             else return false;           
         }
 
-        public async Task<List<Comment>> GetCommentByArticleIdAsync(int articleId)
-        {
-            var comments = await _context.Comments.Where(c => c.ArticleId == articleId).ToListAsync();
+        //public async Task<List<CommentDTO>> GetCommentsByArticleIdAsync(int articleId)
+        //{
+        //    var cDtos = new List<CommentDTO>(); 
+        //    //var comments = await _context.Comments.Where(c => c.ArticleId == articleId).ToListAsync();
+        //    var commentT = await _context.Comments.Select(c => new { Content = c.Content }).ToListAsync();
+        //    foreach (var c in commentT)
+        //    {
+        //        CommentDTO cDto = new CommentDTO { Content = c.Content };
+                
+        //        cDtos.Add(cDto);
+        //    }
+            
+        //    if (cDtos.Any())
+        //    {
+        //        return cDtos;
+        //    }
+        //    else return null;
+        //}
 
-            if (comments.Any())
+        public async Task<List<CommentCreateDTO>> GetCommentsByArticleIdAsync(int articleId)
+        {
+         
+            //var comments = await _context.Comments.Where(c => c.ArticleId == articleId).ToListAsync();
+            var commentT = await _context.Comments.Select(c => new CommentCreateDTO{ Content = c.Content }).ToListAsync();
+          
+
+            if (commentT.Any())
             {
-                return comments;
+                return commentT;
             }
-            else throw new Exception("Aucun commentaire trouvé");
+            else return null;
         }
 
         public async Task<Comment> GetCommentByIdAsync(int commentId)
@@ -51,10 +74,21 @@ namespace Repositories
             var comment = await _context.Comments.FindAsync(commentId);
 
             if (comment != null) { return comment; }
-            else throw new Exception("Aucun commentaire trouvé");
+            else return null;
         }
 
-        public async Task<List<Comment>> GetCommentByUserIdAsync(string userId)
+        public async Task<Comment> GetCommentByUserIdAsync(string userId)
+        {
+            var comment = await _context.Comments.FindAsync(userId);
+
+            if (comment != null)
+            {
+                return comment;
+            }
+            else return null;
+        }
+
+        public async Task<List<Comment>> GetCommentsByUserIdAsync(string userId)
         {
             var comments = await _context.Comments.Where(c => c.UserId == userId).ToListAsync();
 
@@ -62,8 +96,9 @@ namespace Repositories
             {
                 return comments;
             }
-            else throw new Exception("Aucun commentaire trouvé");
+            else return null;
         }
+
         public async Task<Comment> UpdateCommentAsync(Comment comment)
         {
             try

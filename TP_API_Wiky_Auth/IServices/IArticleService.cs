@@ -1,16 +1,16 @@
-﻿
-using DTOs;
+﻿using DTOs.ArticleDTOs;
 using Models;
 
 namespace IServices
 {
     public interface IArticleService
     {
-        Task<Article> CreateArticleAsync(ArticleDTO articleDTO);
-        Task<Article> UpdateArticleAsync(ArticleUpdateDTO article);
-        Task<bool> DeleteArticleAsync(int articleId);
+        Task<Article> CreateArticleAsync(ArticleDTO articleDTO, string userId);
+        Task<Article> UpdateArticleAsync(ArticleUpdateDTO article, string? userId, bool isAdmin);
+        Task<bool> DeleteArticleAsync(int articleId, string userId, bool isAdmin);
+        Task<Article> GetArticleByIdAsync(int articleId);
         Task<List<Article>> GetAllArticleAsync();
-        Task<Article> GetArticleAndCommentAsync(int articleId);
+        Task<ArticleAndCommentsDTO> GetArticleAndCommentsAsync(int articleId);
         Task<List<Article>> GetArticleByDatesAsync(DateTime startDate, DateTime endDate);
         Task<List<Article>> GetArticlesByThemeDescAsync();
         Task<List<Article>> GetArticlesByThemeAscAsync();

@@ -11,7 +11,6 @@ C:\Users\vfurc\Desktop\TP_CDA\TP_API_Wiky_Auth\Services\obj\Debug\net8.0\Service
 C:\Users\vfurc\Desktop\TP_CDA\TP_API_Wiky_Auth\Services\obj\Debug\net8.0\Services.AssemblyInfo.cs
 C:\Users\vfurc\Desktop\TP_CDA\TP_API_Wiky_Auth\Services\obj\Debug\net8.0\Services.csproj.CoreCompileInputs.cache
 C:\Users\vfurc\Desktop\TP_CDA\TP_API_Wiky_Auth\Services\obj\Debug\net8.0\Services.sourcelink.json
-C:\Users\vfurc\Desktop\TP_CDA\TP_API_Wiky_Auth\Services\obj\Debug\net8.0\Services.csproj.Up2Date
 C:\Users\vfurc\Desktop\TP_CDA\TP_API_Wiky_Auth\Services\obj\Debug\net8.0\Services.dll
 C:\Users\vfurc\Desktop\TP_CDA\TP_API_Wiky_Auth\Services\obj\Debug\net8.0\refint\Services.dll
 C:\Users\vfurc\Desktop\TP_CDA\TP_API_Wiky_Auth\Services\obj\Debug\net8.0\Services.pdb
@@ -20,3 +19,4 @@ C:\Users\vfurc\Desktop\TP_CDA\TP_API_Wiky_Auth\Services\bin\Debug\net8.0\DTOs.dl
 C:\Users\vfurc\Desktop\TP_CDA\TP_API_Wiky_Auth\Services\bin\Debug\net8.0\IRepositories.dll
 C:\Users\vfurc\Desktop\TP_CDA\TP_API_Wiky_Auth\Services\bin\Debug\net8.0\IRepositories.pdb
 C:\Users\vfurc\Desktop\TP_CDA\TP_API_Wiky_Auth\Services\bin\Debug\net8.0\DTOs.pdb
+C:\Users\vfurc\Desktop\TP_CDA\TP_API_Wiky_Auth\Services\obj\Debug\net8.0\Services.csproj.CopyComplete

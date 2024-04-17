@@ -150,7 +150,6 @@ C:\Users\vfurc\Desktop\TP_CDA\TP_API_Wiky_Auth\TP_API_Wiky_Auth\obj\Debug\net8.0
 C:\Users\vfurc\Desktop\TP_CDA\TP_API_Wiky_Auth\TP_API_Wiky_Auth\obj\Debug\net8.0\staticwebassets\msbuild.buildTransitive.TP_API_Wiky_Auth.props
 C:\Users\vfurc\Desktop\TP_CDA\TP_API_Wiky_Auth\TP_API_Wiky_Auth\obj\Debug\net8.0\staticwebassets.pack.json
 C:\Users\vfurc\Desktop\TP_CDA\TP_API_Wiky_Auth\TP_API_Wiky_Auth\obj\Debug\net8.0\scopedcss\bundle\TP_API_Wiky_Auth.styles.css
-C:\Users\vfurc\Desktop\TP_CDA\TP_API_Wiky_Auth\TP_API_Wiky_Auth\obj\Debug\net8.0\TP_API_W.C9EAE758.Up2Date
 C:\Users\vfurc\Desktop\TP_CDA\TP_API_Wiky_Auth\TP_API_Wiky_Auth\obj\Debug\net8.0\TP_API_Wiky_Auth.dll
 C:\Users\vfurc\Desktop\TP_CDA\TP_API_Wiky_Auth\TP_API_Wiky_Auth\obj\Debug\net8.0\refint\TP_API_Wiky_Auth.dll
 C:\Users\vfurc\Desktop\TP_CDA\TP_API_Wiky_Auth\TP_API_Wiky_Auth\obj\Debug\net8.0\TP_API_Wiky_Auth.pdb
@@ -158,3 +157,5 @@ C:\Users\vfurc\Desktop\TP_CDA\TP_API_Wiky_Auth\TP_API_Wiky_Auth\obj\Debug\net8.0
 C:\Users\vfurc\Desktop\TP_CDA\TP_API_Wiky_Auth\TP_API_Wiky_Auth\obj\Debug\net8.0\ref\TP_API_Wiky_Auth.dll
 C:\Users\vfurc\Desktop\TP_CDA\TP_API_Wiky_Auth\TP_API_Wiky_Auth\bin\Debug\net8.0\TP_API_Wiky_Auth.xml
 C:\Users\vfurc\Desktop\TP_CDA\TP_API_Wiky_Auth\TP_API_Wiky_Auth\obj\Debug\net8.0\TP_API_Wiky_Auth.xml
+C:\Users\vfurc\Desktop\TP_CDA\TP_API_Wiky_Auth\TP_API_Wiky_Auth\obj\Debug\net8.0\TP_API_Wiky_Auth.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\vfurc\Desktop\TP_CDA\TP_API_Wiky_Auth\TP_API_Wiky_Auth\obj\Debug\net8.0\TP_API_Wiky_Auth.csproj.CopyComplete

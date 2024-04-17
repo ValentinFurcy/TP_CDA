@@ -1,4 +1,5 @@
-﻿using Models;
+﻿using DTOs.CommentDTOs;
+using Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,7 +14,9 @@ namespace IRepositories
         Task<Comment> UpdateCommentAsync(Comment comment);
         Task<bool> DeleteCommentAsync(int commentId);
         Task<Comment> GetCommentByIdAsync(int commentId);
-        Task<List<Comment>> GetCommentByArticleIdAsync(int articleId);
-        Task<List<Comment>> GetCommentByUserIdAsync(string userId);
+        Task<List<CommentCreateDTO>> GetCommentsByArticleIdAsync(int articleId);
+        Task<List<Comment>> GetCommentsByUserIdAsync(string userId);
+        Task<Comment> GetCommentByUserIdAsync(string userId);
+
     }
 }

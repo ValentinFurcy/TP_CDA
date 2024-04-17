@@ -1,4 +1,6 @@
-﻿using IRepository;
+﻿using DTOs.ArticleDTOs;
+using DTOs.CommentDTOs;
+using IRepository;
 using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using Models;
@@ -27,13 +29,19 @@ namespace Repositories
                 return article;
         }
 
+        public async Task<Article> GetArticleById(int articleId)
+        {
+           var article = await _context.Articles.FindAsync(articleId);
+            if (article != null) { return article; }
+            else return null;
+            
+        }
         public async Task<Article> UpdateArticleAsync(Article article)
         {
             try
             {
                 var nbRows = await _context.Articles.Where(a => a.Id == article.Id).ExecuteUpdateAsync(
-                    updates => updates.SetProperty(a => a.Priority, article.Priority)
-                            .SetProperty(a => a.Content, article.Content)
+                    updates => updates.SetProperty(a => a.Content, article.Content)
                             .SetProperty(a => a.ModificationDate, article.ModificationDate)
                             .SetProperty(a => a.ThemeId, article.ThemeId)
                     );
@@ -76,37 +84,49 @@ namespace Repositories
             {
                 return articles;
             }
-            else throw new Exception("Aucun article trouvé");
+            else return new List<Article>();
         }
 
-        public async Task<Article> GetArticleAndCommentAsync(int articleId)
+        public async Task<ArticleAndCommentsDTO> GetArticleAndCommentsAsync(int articleId)
         {
-            var articles = await _context.Articles.Include(a => a.Theme).Include(a => a.Comments).FirstOrDefaultAsync(a => a.Id == articleId);
-            if (articles != null)
+            var article = await _context.Articles.Include(a => a.Theme)
+                .Include(a => a.Comments).ThenInclude(c => c.User)
+                .Include(a => a.User)
+                .Where(a => a.Id == articleId)
+                .Select(a => new ArticleAndCommentsDTO
+                {
+                    Author = a.User.UserName,
+                    Content = a.Content,
+                    Theme = a.Theme.Label,
+                    CommentsViewDTO = a.Comments.Select(c => new CommentViewDTO { Author = c.User.UserName, Content = c.Content })
+
+                }).FirstOrDefaultAsync();
+
+            if (article != null)
             {
-                return articles;
+                return article;
             }
-            else throw new Exception("Aucun article trouvé");
+            else return null;
         }
 
         public async Task<List<Article>> GetArticlesByAuthorAscAsync()
         {
-            var articles = await _context.Articles.Include(a => a.Theme).Include(a => a.Comments).OrderBy(a => a.Author).ToListAsync();
+            var articles = await _context.Articles.Include(a => a.Theme).Include(a => a.Comments).OrderBy(a => a.User).ToListAsync();
             if (articles.Any())
             {
                 return articles;
             }
-            else throw new Exception("Aucun article trouvé");
+            else return new List<Article>();
         }
 
         public async Task<List<Article>> GetArticlesByAuthorDescAsync()
         {
-            var articles = await _context.Articles.Include(a => a.Theme).Include(a => a.Comments).OrderByDescending(a => a.Author).ToListAsync();
+            var articles = await _context.Articles.Include(a => a.Theme).Include(a => a.Comments).OrderByDescending(a => a.User).ToListAsync();
             if (articles.Any())
             {
                 return articles;
             }
-            else throw new Exception("Aucun article trouvé");
+            else return new List<Article>();
         }
 
         public async Task<List<Article>> GetArticleByDatesAsync(DateTime startDate, DateTime endDate)
@@ -116,7 +136,7 @@ namespace Repositories
             {
                 return articles;
             }
-            else throw new Exception("Aucun article trouvé");
+            else return new List<Article>();
         }
 
         public async Task<List<Article>> GetArticlesByThemeAscAsync()
@@ -126,7 +146,7 @@ namespace Repositories
             {
                 return articles;
             }
-            else throw new Exception("Aucun article trouvé");
+            else return new List<Article>();
         }
 
         public async Task<List<Article>> GetArticlesByThemeDescAsync()
@@ -136,7 +156,7 @@ namespace Repositories
             {
                 return articles;
             }
-            else throw new Exception("Aucun article trouvé");
+            else return new List<Article>();
         }
 
         public async Task<List<Article>> GetArticleTop3Async(DateTime date)
@@ -146,7 +166,9 @@ namespace Repositories
             {
                 return articles;
             }
-            else throw new Exception("Aucun article trouvé");
+            else return new List<Article>();
         }
+
+        
     }
 }

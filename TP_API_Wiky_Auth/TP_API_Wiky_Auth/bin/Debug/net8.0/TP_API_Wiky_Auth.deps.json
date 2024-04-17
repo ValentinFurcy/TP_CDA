@@ -1038,6 +1038,7 @@
       },
       "IRepositories/1.0.0": {
         "dependencies": {
+          "DTOs": "1.0.0",
           "Microsoft.EntityFrameworkCore.InMemory": "8.0.4",
           "Models": "1.0.0"
         },

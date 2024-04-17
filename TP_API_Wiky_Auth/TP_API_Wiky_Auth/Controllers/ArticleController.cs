@@ -1,30 +1,44 @@
-﻿using DTOs;
+﻿using DTOs.ArticleDTOs;
 using IServices;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Models;
+using Models.Exceptions;
 
 namespace TP_API_Wiky_Auth.Controllers
 {
     [Route("api/[controller]/[action]")]
     [ApiController]
-    //[Authorize]
+    
     public class ArticleController : ControllerBase
     {
         IArticleService _articleService;
-        public ArticleController(IArticleService articleService)
+        UserManager<AppUser> _userManager;
+        public ArticleController(IArticleService articleService, UserManager<AppUser> userManager)
         {
             _articleService = articleService;
+            _userManager = userManager;
         }
 
+     
+        /// <summary>
+        /// Create article
+        /// </summary>
+        /// <param name="articleDTO"></param>
+        /// <returns></returns>
+        [ProducesResponseType(200)]
+        [ProducesResponseType(400)]
+        [Authorize]
         [HttpPost]
         public async Task<IActionResult> CreateArticle(ArticleDTO articleDTO)
         {
 
-            if (!string.IsNullOrEmpty(articleDTO.Author) && !string.IsNullOrEmpty(articleDTO.Content) && articleDTO.ThemeId > 0)
+            if (!string.IsNullOrEmpty(articleDTO.Content) && articleDTO.ThemeId > 0)
             {
-                var article = await _articleService.CreateArticleAsync(articleDTO);
+                var userId = _userManager.GetUserId(User);
+                var article = await _articleService.CreateArticleAsync(articleDTO, userId);
 
                 return Ok($"créé ! : {article.Content}");
             }
@@ -34,24 +48,80 @@ namespace TP_API_Wiky_Auth.Controllers
             }
         }
 
+        /// <summary>
+        /// Delete Article and Comments if they exist if user it's author or admin
+        /// </summary>
+        /// <param name="articleId"></param>
+        /// <returns></returns>
+        [ProducesResponseType(200)]
+        [ProducesResponseType(400)]
+        [Authorize]
         [HttpDelete]
         public async Task<ActionResult<bool>> DeleteArticleAsync(int articleId) 
         {
             if (articleId > 0)
             {
-                return await _articleService.DeleteArticleAsync(articleId);
+
+                var user = await _userManager.GetUserAsync(User);
+
+                var isAdmin = await _userManager.IsInRoleAsync(user, "ADMIN");
+
+                var userId = user.Id;
+
+                try
+                {
+                    bool deleteResult = await _articleService.DeleteArticleAsync(articleId, userId, isAdmin);
+
+                    return Ok(deleteResult);
+                }
+                catch (MyExceptions e)
+                {
+                    return BadRequest(e.invalidUser);
+                }
+                catch (Exception e)
+                {
+                    return StatusCode(500, $"ERROR : {e.Message}");
+                }
+                             
             }
             else return BadRequest("Saisir un ID supérieur à 0");
         }
 
+        /// <summary>
+        /// Update article if user it's author or admin
+        /// </summary>
+        /// <param name="articleToUpd"></param>
+        /// <returns></returns>
+        [ProducesResponseType(200)]
+        [ProducesResponseType(400)]
+        [ProducesResponseType(500)]
+        [Authorize]
         [HttpPut]
         public async Task<IActionResult> UpdateArticleAsync(ArticleUpdateDTO articleToUpd) 
         {
             if(articleToUpd != null) 
             {
-                var article = await _articleService.UpdateArticleAsync(articleToUpd);
+                var user = await _userManager.GetUserAsync(User);
 
-                return Ok($"modification : {article}");
+                var isAdmin = await _userManager.IsInRoleAsync(user, "ADMIN");
+                
+                var userId = user.Id;
+
+                try
+                {
+                    var article = await _articleService.UpdateArticleAsync(articleToUpd, userId, isAdmin);
+
+                    return Ok($"modification : {article}");
+                }              
+                catch (MyExceptions e) 
+                {
+                    return BadRequest(e.invalidUser);
+                }
+                catch (Exception e)
+                {
+
+                    return StatusCode(500, $"ERROR : {e.Message}");
+                }
             }
             else return BadRequest("Champs requis non renseignés");
         }
@@ -76,13 +146,13 @@ namespace TP_API_Wiky_Auth.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> GetArticleAndCommentAsync(int articleId)
+        public async Task<IActionResult> GetArticleAndCommentsAsync(int articleId)
         {
             try
             {
                 if(articleId > 0) 
                 {
-                    var article = await _articleService.GetArticleAndCommentAsync(articleId);
+                    var article = await _articleService.GetArticleAndCommentsAsync(articleId);
                     if (article != null)
                     {
                         return Ok(article);

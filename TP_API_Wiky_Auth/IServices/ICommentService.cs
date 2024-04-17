@@ -1,4 +1,5 @@
-﻿using DTOs;
+﻿using DTOs.CommentDTOs;
+using Microsoft.EntityFrameworkCore.Storage.ValueConversion.Internal;
 using Models;
 using System;
 using System.Collections.Generic;
@@ -10,11 +11,13 @@ namespace IServices
 {
     public interface ICommentService
     {
-        Task<Comment> CreateCommentAsync(Comment comment);
-        Task<Comment> UpdateCommentAsync(CommentUpdateDTO commentUpdateDTO);
-        Task<bool> DeleteCommentAsync(int commentId);
+        Task<Comment> CreateCommentAsync(CommentCreateDTO commentDTO, string userId);
+        Task<Comment> UpdateCommentAsync(CommentUpdateDTO commentUpdateDTO, string userId, bool isAdmin);
+        Task<bool> DeleteCommentAsync(int commentId, string userId, bool isAdmin);
         Task<Comment> GetCommentByIdAsync(int commentId);
-        Task<List<Comment>> GetCommentByArticleIdAsync(int articleId);
-        Task<List<Comment>> GetCommentByUserIdAsync(string userId);
+        Task<List<CommentCreateDTO>>GetCommentsByArticleIdAsync(int articleId);
+        Task<List<Comment>> GetCommentsByUserIdAsync(string userId);
+        Task<Comment> GetCommentByUserIdAsync(string userId);
+
     }
 }

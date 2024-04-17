@@ -4,9 +4,78 @@
         <name>TP_API_Wiky_Auth</name>
     </assembly>
     <members>
-        <member name="M:TP_API_Wiky_Auth.Controllers.UserController.RegisterUser(DTOs.UserRegisterDTO)">
+        <member name="M:TP_API_Wiky_Auth.Controllers.ArticleController.CreateArticle(DTOs.ArticleDTOs.ArticleDTO)">
             <summary>
-            Register User
+            Create article
+            </summary>
+            <param name="articleDTO"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TP_API_Wiky_Auth.Controllers.ArticleController.DeleteArticleAsync(System.Int32)">
+            <summary>
+            Delete Article and Comments if they exist if user it's author or admin
+            </summary>
+            <param name="articleId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TP_API_Wiky_Auth.Controllers.ArticleController.UpdateArticleAsync(DTOs.ArticleDTOs.ArticleUpdateDTO)">
+            <summary>
+            Update article if user it's author or admin
+            </summary>
+            <param name="articleToUpd"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TP_API_Wiky_Auth.Controllers.CommentController.CreateComment(DTOs.CommentDTOs.CommentCreateDTO)">
+            <summary>
+            Create comment for article
+            </summary>
+            <param name="commentDTO"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TP_API_Wiky_Auth.Controllers.CommentController.UpdateComment(DTOs.CommentDTOs.CommentUpdateDTO)">
+            <summary>
+            Update comment if user it's author or admin 
+            </summary>
+            <param name="commentUpdateDTO"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TP_API_Wiky_Auth.Controllers.CommentController.DeleteComment(System.Int32)">
+            <summary>
+            Delete comment if user it's author or admin
+            </summary>
+            <param name="commentId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TP_API_Wiky_Auth.Controllers.CommentController.GetCommentsByUserId(System.String)">
+            <summary>
+            Get Comment by UserId
+            </summary>
+            <param name="userId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TP_API_Wiky_Auth.Controllers.UserController.RegisterUser(DTOs.UserDTOs.UserRegisterDTO)">
+            <summary>
+            Register User with role User
+            </summary>
+            /// <param name="userRegisterDTO"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TP_API_Wiky_Auth.Controllers.UserController.CreateRole">
+            <summary>
+            Create Role if not existing
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TP_API_Wiky_Auth.Controllers.UserController.RegisterAdmin(DTOs.UserDTOs.UserRegisterDTO)">
+            <summary>
+            Create User with Role Admin
+            </summary>
+            <param name="userRegisterDTO"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TP_API_Wiky_Auth.Controllers.UserController.Logout">
+            <summary>
+            Logout
             </summary>
             <returns></returns>
         </member>
