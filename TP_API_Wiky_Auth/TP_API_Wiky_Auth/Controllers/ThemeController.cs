@@ -3,15 +3,19 @@ using IServices;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.OpenApi.Models;
 using Models;
 using Models.CONST;
 using Services;
 
 namespace TP_API_Wiky_Auth.Controllers
 {
+    /// <summary>
+    /// Controller reserved for ADMIN
+    /// </summary>
     [Route("api/[controller]/[action]")]
     [ApiController]
-    //[Authorize(Roles = ROLES.ADMIN)]
+    [Authorize(Roles = ROLES.ADMIN)]
     public class ThemeController : ControllerBase
     {
         IThemeService _themeService;
@@ -20,6 +24,11 @@ namespace TP_API_Wiky_Auth.Controllers
             _themeService = themeService;
         }
 
+        /// <summary>
+        /// Create theme reserved for ADMIN
+        /// </summary>
+        /// <param name="themeDTO">object themeDTO</param>
+        /// <returns></returns>
         [HttpPost]
         public async Task<IActionResult> CreateTheme(ThemeDTO themeDTO) 
         {
@@ -38,6 +47,12 @@ namespace TP_API_Wiky_Auth.Controllers
             else return BadRequest("Il Faut un nom au theme !");
         }
 
+        /// <summary>
+        /// GetAll theme reserved for ADMIN
+        /// </summary>
+        /// <returns></returns>
+        [ProducesResponseType(200)]
+        [ProducesResponseType(204)]
         [HttpGet]
         public async Task<IActionResult> GetAllTheme() 
         {
@@ -49,8 +64,16 @@ namespace TP_API_Wiky_Auth.Controllers
             else { return NoContent(); }
         }
 
+        /// <summary>
+        /// Update Theme reserved for ADMIN
+        /// </summary>
+        /// <param name="themeUpdateDTO">object themeUpdateDTO</param>
+        /// <returns></returns>
+        [ProducesResponseType(200)]
+        [ProducesResponseType(404)]
+        [ProducesResponseType(400)]
         [HttpPut]
-        public async Task<IActionResult> UpdateTheme(ThemeUpdateDTO themeUpdateDTO) 
+        public async Task<IActionResult> UpdateTheme(ThemeDTO themeUpdateDTO) 
         {
             if (themeUpdateDTO != null)
             {
@@ -65,8 +88,16 @@ namespace TP_API_Wiky_Auth.Controllers
             else return BadRequest();
         }
 
+        /// <summary>
+        /// Delete Theme reserved for ADMIN / return true if the deletion was success or false if the deletion unsuccess
+        /// </summary>
+        /// <param name="themeId">id theme</param>
+        /// <returns></returns>
+        [ProducesResponseType(typeof(bool) , StatusCodes.Status200OK)]
+        [ProducesResponseType(400)]
+       
         [HttpDelete]
-        public async Task<ActionResult<bool>> DeleteComment(int themeId) 
+        public async Task<ActionResult<bool>> DeleteTheme(int themeId) 
         {
             if (themeId > 0)
             {

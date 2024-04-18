@@ -6,17 +6,17 @@ namespace IRepository
 {
     public interface IArticleRepository
     {
-        Task<Article> CreateArticleAsync(Article article);
-        Task<Article> UpdateArticleAsync(Article article);
+        Task<ArticleViewDTO> CreateArticleAsync(Article article);
+        Task<ArticleViewDTO> UpdateArticleAsync(Article article);
         Task<bool> DeleteArticleAsync(int articleId);
-        Task<List<Article>> GetAllArticleAsync();
+        Task<List<ArticleViewDTO>> GetAllArticleAsync();
         Task<ArticleAndCommentsDTO> GetArticleAndCommentsAsync(int articleId);
-        Task<List<Article>> GetArticleByDatesAsync(DateTime startDate, DateTime EndDate);
-        Task<List<Article>> GetArticlesByThemeDescAsync();
-        Task<List<Article>> GetArticlesByThemeAscAsync();
-        Task<List<Article>> GetArticlesByAuthorDescAsync();
-        Task<List<Article>> GetArticlesByAuthorAscAsync();
-        Task<List<Article>> GetArticleTop3Async(DateTime date);
-        Task<Article> GetArticleById(int articleId);
+        Task<List<ArticleViewDTO>> GetArticleByDatesAsync(DateTime startDate, DateTime EndDate);
+        Task<List<ArticleViewDTO>> GetArticlesByThemeDescAsync();
+        Task<List<ArticleViewDTO>> GetArticlesByThemeAscAsync();
+        Task<List<ArticleViewDTO>> GetArticlesByAuthorDescAsync();
+        Task<List<ArticleViewDTO>> GetArticlesByAuthorAscAsync();
+        Task<List<ArticleViewDTO>> GetArticleTop3Async(DateTime date);
+        Task<ArticleViewDTO> GetArticleById(int articleId);
     }
 }

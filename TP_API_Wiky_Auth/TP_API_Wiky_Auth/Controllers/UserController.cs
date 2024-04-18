@@ -29,6 +29,7 @@ namespace TP_API_Wiky_Auth.Controllers
             _roleManager = roleManager;
         }
 
+
         /// <summary>
         /// Register User with role User
         /// </summary>
@@ -40,16 +41,14 @@ namespace TP_API_Wiky_Auth.Controllers
         [HttpPost]
         public async Task<IActionResult> RegisterUser(UserRegisterDTO userRegisterDTO)
         {
-            var dateToday = DateOnly.FromDateTime(DateTime.Now);
-            var year = dateToday.Year;
-            var yearUser = userRegisterDTO.DateNaissance.Year;
-            var age = year - yearUser;
-
-            if (!string.IsNullOrEmpty(userRegisterDTO.Email) && !string.IsNullOrEmpty(userRegisterDTO.Password) && age > 18)
+            var dateToday = DateTime.Now;           
+            var ageUser = userRegisterDTO.BirthDate;
+         
+            if (!string.IsNullOrEmpty(userRegisterDTO.Email) && !string.IsNullOrEmpty(userRegisterDTO.Password) && ageUser.AddYears(18) < dateToday)
             {
                 try
                 {
-                    var user = new AppUser { UserName = userRegisterDTO.UserName, Email = userRegisterDTO.Email, DateNaissance = DateOnly.FromDateTime(userRegisterDTO.DateNaissance),  };
+                    var user = new AppUser { UserName = userRegisterDTO.UserName, Email = userRegisterDTO.Email, BirthDate = DateOnly.FromDateTime(userRegisterDTO.BirthDate),  };
                     var result = await _userManager.CreateAsync(user, userRegisterDTO.Password);
 
                     if (result.Succeeded)
@@ -68,7 +67,7 @@ namespace TP_API_Wiky_Auth.Controllers
                     return StatusCode(500, $"Error : {e.Message} ");
                 }
             }
-            else if (age < 18) 
+            else if (ageUser.AddYears(18) > dateToday) 
             {
                 return BadRequest("Vous devez avoir au moins 18 ans pour vous inscrire.");
             }
@@ -112,16 +111,14 @@ namespace TP_API_Wiky_Auth.Controllers
         [HttpPost]
         public async Task<IActionResult> RegisterAdmin(UserRegisterDTO userRegisterDTO) 
         {
-            var dateToday = DateOnly.FromDateTime(DateTime.Now);
-            var year = dateToday.Year;
-            var yearUser = userRegisterDTO.DateNaissance.Year;
-            var age = year - yearUser;
+            var dateToday = DateTime.Now;
+            var ageUser = userRegisterDTO.BirthDate;
 
-            if (!string.IsNullOrEmpty(userRegisterDTO.Email) && !string.IsNullOrEmpty(userRegisterDTO.Password) && age > 18)
+            if (!string.IsNullOrEmpty(userRegisterDTO.Email) && !string.IsNullOrEmpty(userRegisterDTO.Password) && ageUser.AddYears(18) < dateToday)
             {
                 try
                 {
-                    var user = new AppUser { UserName = userRegisterDTO.UserName, Email = userRegisterDTO.Email, DateNaissance = DateOnly.FromDateTime(userRegisterDTO.DateNaissance), };
+                    var user = new AppUser { UserName = userRegisterDTO.UserName, Email = userRegisterDTO.Email, BirthDate = DateOnly.FromDateTime(userRegisterDTO.BirthDate), };
                     var result = await _userManager.CreateAsync(user, userRegisterDTO.Password);
                     
 
@@ -141,7 +138,7 @@ namespace TP_API_Wiky_Auth.Controllers
                     return StatusCode(500, $"Error : {e.Message} ");
                 }
             }
-            else if (age < 18)
+            else if (ageUser.AddYears(18) > dateToday)
             {
                 return BadRequest("Vous devez avoir au moins 18 ans pour vous inscrire.");
             }

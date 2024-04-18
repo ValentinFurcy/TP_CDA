@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "926kY/deb5JGPRtQHQYVCIKZOM4VSUr9HnnAKF0F+2Ltwxpx6ZGRrKen49+Uaq2O5QOIvIYx4YqiKSo2CGjy9g==",
+  "dgSpecHash": "YnKdnmCGdkDSnrxswUvWGRJsWQQuu9gcIXiW9lDCmXd99oAN2jofkNjWfonG4S962kbERf9hvnv+UHYcLoaeCQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\vfurc\\Desktop\\TP_CDA\\TP_API_Wiky_Auth\\DTOs\\DTOs.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\vfurc\\.nuget\\packages\\automapper\\13.0.1\\automapper.13.0.1.nupkg.sha512",
     "C:\\Users\\vfurc\\.nuget\\packages\\azure.core\\1.35.0\\azure.core.1.35.0.nupkg.sha512",
     "C:\\Users\\vfurc\\.nuget\\packages\\azure.identity\\1.10.3\\azure.identity.1.10.3.nupkg.sha512",
     "C:\\Users\\vfurc\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",

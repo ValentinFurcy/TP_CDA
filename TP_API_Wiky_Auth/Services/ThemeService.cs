@@ -39,7 +39,7 @@ namespace Services
             return await _themeRepository.GetThemeByIdAsync(themeId);
         }
 
-        public async Task<Theme> UpdateThemeAsync(ThemeUpdateDTO themeUpdateDTO)
+        public async Task<Theme> UpdateThemeAsync(ThemeDTO themeUpdateDTO)
         {
             Theme theme = new Theme { Id = themeUpdateDTO.Id, Label = themeUpdateDTO.Label };
 

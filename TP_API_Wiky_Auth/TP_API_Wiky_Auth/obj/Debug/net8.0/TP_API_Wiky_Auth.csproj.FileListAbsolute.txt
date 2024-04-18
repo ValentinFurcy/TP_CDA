@@ -159,3 +159,4 @@ C:\Users\vfurc\Desktop\TP_CDA\TP_API_Wiky_Auth\TP_API_Wiky_Auth\bin\Debug\net8.0
 C:\Users\vfurc\Desktop\TP_CDA\TP_API_Wiky_Auth\TP_API_Wiky_Auth\obj\Debug\net8.0\TP_API_Wiky_Auth.xml
 C:\Users\vfurc\Desktop\TP_CDA\TP_API_Wiky_Auth\TP_API_Wiky_Auth\obj\Debug\net8.0\TP_API_Wiky_Auth.MvcApplicationPartsAssemblyInfo.cs
 C:\Users\vfurc\Desktop\TP_CDA\TP_API_Wiky_Auth\TP_API_Wiky_Auth\obj\Debug\net8.0\TP_API_Wiky_Auth.csproj.CopyComplete
+C:\Users\vfurc\Desktop\TP_CDA\TP_API_Wiky_Auth\TP_API_Wiky_Auth\bin\Debug\net8.0\AutoMapper.dll

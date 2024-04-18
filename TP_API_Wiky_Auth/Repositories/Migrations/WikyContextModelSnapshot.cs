@@ -163,12 +163,12 @@ namespace Repositories.Migrations
                     b.Property<int>("AccessFailedCount")
                         .HasColumnType("int");
 
+                    b.Property<DateOnly>("BirthDate")
+                        .HasColumnType("date");
+
                     b.Property<string>("ConcurrencyStamp")
                         .IsConcurrencyToken()
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateOnly>("DateNaissance")
-                        .HasColumnType("date");
 
                     b.Property<string>("Email")
                         .HasMaxLength(256)

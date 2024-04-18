@@ -1,3 +1,4 @@
+using DTOs.ArticleDTOs;
 using IRepositories;
 using IRepository;
 using IServices;
@@ -13,6 +14,17 @@ using System.Reflection;
 using System.Text.Json.Serialization;
 
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddAutoMapper(a => 
+{
+    a.CreateMap<Article, ArticleViewDTO>()
+    .ForMember(dest => dest.Theme,
+    a => a.MapFrom(src => src.Theme.Label))
+    .ForMember(dest => dest.Author,
+    a => a.MapFrom(src => src.User.UserName))
+    .ForMember(dest => dest.AuthorId,
+    a => a.MapFrom(src => src.User.Id));
+});
 
 // Add services to the container.
 builder.Services.AddAuthorization();

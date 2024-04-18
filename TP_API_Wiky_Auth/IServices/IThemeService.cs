@@ -15,6 +15,6 @@ namespace IServices
         Task<List<Theme>> GetAllThemeAsync();
         Task<Theme> GetThemeByIdAsync(int themeId);
         Task<bool> DeleteThemeAsync(int themeId);
-        Task<Theme> UpdateThemeAsync(ThemeUpdateDTO themeUpdateDTO);
+        Task<Theme> UpdateThemeAsync(ThemeDTO themeUpdateDTO);
     }
 }

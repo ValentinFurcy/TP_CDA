@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "NFdkyGwBk8gFQ9GV+zbmFeNhBQYSy6tgXYJk0XMsKyxqgkFvvaZ9qe27C60JAWrkdL71R0VVvfY1YQAtbZUXKQ==",
+  "dgSpecHash": "DrITrZR5lWOldG+i2pGuxJdm90fYyHMyaEbanc/J/REG/mYvANRLxNqGGNjt/7DX3eyqLF+81tqtqmgJM6lvRw==",
   "success": true,
   "projectFilePath": "C:\\Users\\vfurc\\Desktop\\TP_CDA\\TP_API_Wiky_Auth\\IServices\\IServices.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\vfurc\\.nuget\\packages\\automapper\\13.0.1\\automapper.13.0.1.nupkg.sha512",
     "C:\\Users\\vfurc\\.nuget\\packages\\azure.core\\1.35.0\\azure.core.1.35.0.nupkg.sha512",
     "C:\\Users\\vfurc\\.nuget\\packages\\azure.identity\\1.10.3\\azure.identity.1.10.3.nupkg.sha512",
     "C:\\Users\\vfurc\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\8.0.4\\microsoft.aspnetcore.cryptography.internal.8.0.4.nupkg.sha512",

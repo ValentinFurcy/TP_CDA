@@ -1,4 +1,5 @@
-﻿using DTOs.ArticleDTOs;
+﻿using AutoMapper;
+using DTOs.ArticleDTOs;
 using DTOs.CommentDTOs;
 using IRepository;
 using Microsoft.AspNetCore.Http;
@@ -17,26 +18,36 @@ namespace Repositories
     public class ArticleRepository : IArticleRepository
     {
         WikyDbContext _context;
-
-        public ArticleRepository(WikyDbContext wikyDbContext)
+        IMapper _mapper;
+        public ArticleRepository(IMapper mapper, WikyDbContext wikyDbContext)
         {
+            _mapper = mapper;
             _context = wikyDbContext;
         }
-        public async Task<Article> CreateArticleAsync(Article article)
-        {    
-                _context.Articles.Add(article);
-                await _context.SaveChangesAsync();
-                return article;
+        public async Task<ArticleViewDTO> CreateArticleAsync(Article article)
+        {
+            _context.Articles.Add(article);
+            await _context.SaveChangesAsync();
+
+            var result = _mapper.Map<ArticleViewDTO>(article);
+
+            return result;
         }
 
-        public async Task<Article> GetArticleById(int articleId)
+        public async Task<ArticleViewDTO> GetArticleById(int articleId)
         {
-           var article = await _context.Articles.FindAsync(articleId);
-            if (article != null) { return article; }
+            var article = await _context.Articles.FindAsync(articleId);
+
+            if (article != null) 
+            {
+                var result = _mapper.Map<ArticleViewDTO>(article);
+
+                return result; 
+            }
             else return null;
             
         }
-        public async Task<Article> UpdateArticleAsync(Article article)
+        public async Task<ArticleViewDTO> UpdateArticleAsync(Article article)
         {
             try
             {
@@ -47,7 +58,10 @@ namespace Repositories
                     );
                 if (nbRows > 0)
                 {
-                    return article;
+                    var result = _mapper.Map<ArticleViewDTO>(article);
+
+                    return result;
+                   
                 }
                 throw new Exception("La modification a échouée");
             }
@@ -77,14 +91,16 @@ namespace Repositories
             }
         }
 
-        public async Task<List<Article>> GetAllArticleAsync()
+        public async Task<List<ArticleViewDTO>> GetAllArticleAsync()
         {
             var articles = await _context.Articles.Include(a => a.Theme).ToListAsync();
             if (articles.Any())
             {
-                return articles;
+                var result = _mapper.Map<List<ArticleViewDTO>>(articles);
+
+                return result;
             }
-            else return new List<Article>();
+            else return new List<ArticleViewDTO>();
         }
 
         public async Task<ArticleAndCommentsDTO> GetArticleAndCommentsAsync(int articleId)
@@ -109,64 +125,76 @@ namespace Repositories
             else return null;
         }
 
-        public async Task<List<Article>> GetArticlesByAuthorAscAsync()
+        public async Task<List<ArticleViewDTO>> GetArticlesByAuthorAscAsync()
         {
             var articles = await _context.Articles.Include(a => a.Theme).Include(a => a.Comments).OrderBy(a => a.User).ToListAsync();
             if (articles.Any())
             {
-                return articles;
+                var result = _mapper.Map<List<ArticleViewDTO>>(articles);
+
+                return result;
             }
-            else return new List<Article>();
+            else return new List<ArticleViewDTO>();
         }
 
-        public async Task<List<Article>> GetArticlesByAuthorDescAsync()
+        public async Task<List<ArticleViewDTO>> GetArticlesByAuthorDescAsync()
         {
             var articles = await _context.Articles.Include(a => a.Theme).Include(a => a.Comments).OrderByDescending(a => a.User).ToListAsync();
             if (articles.Any())
             {
-                return articles;
+                var result = _mapper.Map<List<ArticleViewDTO>>(articles);
+
+                return result;
             }
-            else return new List<Article>();
+            else return new List<ArticleViewDTO>();
         }
 
-        public async Task<List<Article>> GetArticleByDatesAsync(DateTime startDate, DateTime endDate)
+        public async Task<List<ArticleViewDTO>> GetArticleByDatesAsync(DateTime startDate, DateTime endDate)
         {
             var articles = await _context.Articles.Include(a => a.Theme).Include(a => a.Comments).Where(a => a.CreationDate >= startDate && a.CreationDate <= endDate).ToListAsync();
             if (articles.Any())
             {
-                return articles;
+                var result = _mapper.Map<List<ArticleViewDTO>>(articles);
+
+                return result;
             }
-            else return new List<Article>();
+            else return new List<ArticleViewDTO>();
         }
 
-        public async Task<List<Article>> GetArticlesByThemeAscAsync()
+        public async Task<List<ArticleViewDTO>> GetArticlesByThemeAscAsync()
         {
             var articles = await _context.Articles.Include(a => a.Theme).Include(a => a.Comments).OrderBy(a => a.Theme).ToListAsync();
             if (articles.Any())
             {
-                return articles;
+                var result = _mapper.Map<List<ArticleViewDTO>>(articles);
+
+                return result;
             }
-            else return new List<Article>();
+            else return new List<ArticleViewDTO>();
         }
 
-        public async Task<List<Article>> GetArticlesByThemeDescAsync()
+        public async Task<List<ArticleViewDTO>> GetArticlesByThemeDescAsync()
         {
             var articles = await _context.Articles.Include(a => a.Theme).Include(a => a.Comments).OrderByDescending(a => a.Theme).ToListAsync();
             if (articles.Any())
             {
-                return articles;
+                var result = _mapper.Map<List<ArticleViewDTO>>(articles);
+
+                return result;
             }
-            else return new List<Article>();
+            else return new List<ArticleViewDTO>();
         }
 
-        public async Task<List<Article>> GetArticleTop3Async(DateTime date)
+        public async Task<List<ArticleViewDTO>> GetArticleTop3Async(DateTime date)
         {
             var articles = await _context.Articles.Include(a => a.Theme).Include(a => a.Comments).OrderByDescending(a => a.ModificationDate ?? a.CreationDate).Take(3).ToListAsync();
             if (articles.Any())
             {
-                return articles;
+                var result = _mapper.Map<List<ArticleViewDTO>>(articles);
+
+                return result;
             }
-            else return new List<Article>();
+            else return new List<ArticleViewDTO>();
         }
 
         

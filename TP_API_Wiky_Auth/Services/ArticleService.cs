@@ -24,7 +24,7 @@ namespace Services
 
         }
 
-        public async Task<Article> CreateArticleAsync(ArticleDTO articleDTO, string userId)
+        public async Task<ArticleViewDTO> CreateArticleAsync(ArticleCreateDTO articleDTO, string userId)
         {
             
             Article article = new Article
@@ -39,18 +39,18 @@ namespace Services
             return await _articleRepository.CreateArticleAsync(article);
         }
 
-        public async Task<Article> GetArticleByIdAsync(int articleId)
+        public async Task<ArticleViewDTO> GetArticleByIdAsync(int articleId)
         {
             return await _articleRepository.GetArticleById(articleId);
         }
 
-        public async Task<Article> UpdateArticleAsync(ArticleUpdateDTO articleToUpdate, string? userId, bool isAdmin)
+        public async Task<ArticleViewDTO> UpdateArticleAsync(ArticleUpdateDTO articleToUpdate, string? userId, bool isAdmin)
         {
             
             var verifArticle = await GetArticleByIdAsync(articleToUpdate.Id); 
            
 
-            if (verifArticle.UserId == userId || isAdmin)
+            if (verifArticle.AuthorId == userId || isAdmin)
             {
                 Article article = new Article
                 {
@@ -68,14 +68,14 @@ namespace Services
         public async Task<bool> DeleteArticleAsync(int articleId, string userId, bool isAdmin)
         {
             var verifArticle = await GetArticleByIdAsync(articleId);
-            if(verifArticle.UserId == userId ||isAdmin) 
+            if(verifArticle.AuthorId == userId ||isAdmin) 
             {
                 return await _articleRepository.DeleteArticleAsync(articleId);
             }
             else throw new MyExceptions();
         }
 
-        public async Task<List<Article>> GetAllArticleAsync()
+        public async Task<List<ArticleViewDTO>> GetAllArticleAsync()
         {
            return await _articleRepository.GetAllArticleAsync();
         }
@@ -85,32 +85,32 @@ namespace Services
             return await _articleRepository.GetArticleAndCommentsAsync(articleId);
         }
 
-        public async Task<List<Article>> GetArticlesByAuthorAscAsync()
+        public async Task<List<ArticleViewDTO>> GetArticlesByAuthorAscAsync()
         {
                 return await _articleRepository.GetArticlesByAuthorAscAsync();
         }
 
-        public async Task<List<Article>> GetArticlesByAuthorDescAsync()
+        public async Task<List<ArticleViewDTO>> GetArticlesByAuthorDescAsync()
         {
             return await _articleRepository.GetArticlesByThemeDescAsync();
         }
 
-        public async Task<List<Article>> GetArticleByDatesAsync(DateTime startDate, DateTime endDate)
+        public async Task<List<ArticleViewDTO>> GetArticleByDatesAsync(DateTime startDate, DateTime endDate)
         {
             return await _articleRepository.GetArticleByDatesAsync(startDate, endDate);
         }
 
-        public async Task<List<Article>> GetArticlesByThemeAscAsync()
+        public async Task<List<ArticleViewDTO>> GetArticlesByThemeAscAsync()
         {
             return await _articleRepository.GetArticlesByThemeAscAsync();
         }
 
-        public async Task<List<Article>> GetArticlesByThemeDescAsync()
+        public async Task<List<ArticleViewDTO>> GetArticlesByThemeDescAsync()
         {
             return await _articleRepository.GetArticlesByThemeDescAsync();
         }
 
-        public async Task<List<Article>> GetArticleTop3Async(DateTime date)
+        public async Task<List<ArticleViewDTO>> GetArticleTop3Async(DateTime date)
         {
             return await _articleRepository.GetArticleTop3Async(date);
         }

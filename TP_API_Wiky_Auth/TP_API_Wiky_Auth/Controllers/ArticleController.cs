@@ -32,7 +32,7 @@ namespace TP_API_Wiky_Auth.Controllers
         [ProducesResponseType(400)]
         [Authorize]
         [HttpPost]
-        public async Task<IActionResult> CreateArticle(ArticleDTO articleDTO)
+        public async Task<IActionResult> CreateArticle(ArticleCreateDTO articleDTO)
         {
 
             if (!string.IsNullOrEmpty(articleDTO.Content) && articleDTO.ThemeId > 0)
@@ -40,11 +40,11 @@ namespace TP_API_Wiky_Auth.Controllers
                 var userId = _userManager.GetUserId(User);
                 var article = await _articleService.CreateArticleAsync(articleDTO, userId);
 
-                return Ok($"créé ! : {article.Content}");
+                return Ok(article);
             }
             else
             {
-                return BadRequest("Impossible de créer un article vide");
+                return BadRequest("Unable to create an empty article");
             }
         }
 
@@ -84,7 +84,7 @@ namespace TP_API_Wiky_Auth.Controllers
                 }
                              
             }
-            else return BadRequest("Saisir un ID supérieur à 0");
+            else return BadRequest("Enter an ID greater than 0");
         }
 
         /// <summary>
@@ -111,7 +111,7 @@ namespace TP_API_Wiky_Auth.Controllers
                 {
                     var article = await _articleService.UpdateArticleAsync(articleToUpd, userId, isAdmin);
 
-                    return Ok($"modification : {article}");
+                    return Ok(article);
                 }              
                 catch (MyExceptions e) 
                 {
@@ -123,9 +123,16 @@ namespace TP_API_Wiky_Auth.Controllers
                     return StatusCode(500, $"ERROR : {e.Message}");
                 }
             }
-            else return BadRequest("Champs requis non renseignés");
+            else return BadRequest("Required fields are not entered");
         }
 
+        /// <summary>
+        /// Get All Article
+        /// </summary>
+        /// <returns></returns>
+        [ProducesResponseType(200)]
+        [ProducesResponseType(204)]
+        [ProducesResponseType(500)]
         [HttpGet]
         public async Task<IActionResult> GetAllArticleAsync() 
         {
@@ -145,6 +152,15 @@ namespace TP_API_Wiky_Auth.Controllers
            
         }
 
+        /// <summary>
+        /// Get Article with they Comments if they existing
+        /// </summary>
+        /// <param name="articleId">article id</param>
+        /// <returns></returns>
+        [ProducesResponseType(200)]
+        [ProducesResponseType(204)]
+        [ProducesResponseType(400)]
+        [ProducesResponseType(500)]
         [HttpGet]
         public async Task<IActionResult> GetArticleAndCommentsAsync(int articleId)
         {
@@ -159,7 +175,7 @@ namespace TP_API_Wiky_Auth.Controllers
                     }
                     else return NoContent();
                 }
-               else { return BadRequest("Veuillez saisir un Id supérieur à 0"); }
+               else { return BadRequest("Enter an ID greater than 0"); }
             }
             catch (Exception e)
             {
@@ -167,6 +183,16 @@ namespace TP_API_Wiky_Auth.Controllers
             }
         }
 
+        /// <summary>
+        /// Get articles between enter dates
+        /// </summary>
+        /// <param name="startDate"></param>
+        /// <param name="endDate"></param>
+        /// <returns></returns>
+        [ProducesResponseType(200)]
+        [ProducesResponseType(204)]
+        [ProducesResponseType(400)]
+        [ProducesResponseType(500)]
         [HttpGet]
         public async Task<IActionResult> GetArticleByDatesAsync(DateTime startDate, DateTime endDate)
         {
@@ -181,7 +207,7 @@ namespace TP_API_Wiky_Auth.Controllers
                     }
                     else return NoContent();
                 }
-                else { return BadRequest("Veuillez saisir des dates valides"); }
+                else { return BadRequest("Enter valid dates"); }
             }
             catch (Exception e)
             {
@@ -266,8 +292,10 @@ namespace TP_API_Wiky_Auth.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> GetArticleTop3Async(DateTime date)
+        public async Task<IActionResult> GetArticleTop3Async()
         {
+            var date = DateTime.Now;
+
             try
             {
                 if (date != null)
@@ -279,7 +307,7 @@ namespace TP_API_Wiky_Auth.Controllers
                     }
                     else return NoContent();
                 }
-                else { return BadRequest("Veuillez saisir une date valide"); }
+                else { return NotFound("DATE ERROR"); }
             }
             catch (Exception e)
             {

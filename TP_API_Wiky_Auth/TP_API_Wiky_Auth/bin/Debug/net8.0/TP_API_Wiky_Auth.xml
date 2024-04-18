@@ -4,7 +4,7 @@
         <name>TP_API_Wiky_Auth</name>
     </assembly>
     <members>
-        <member name="M:TP_API_Wiky_Auth.Controllers.ArticleController.CreateArticle(DTOs.ArticleDTOs.ArticleDTO)">
+        <member name="M:TP_API_Wiky_Auth.Controllers.ArticleController.CreateArticle(DTOs.ArticleDTOs.ArticleCreateDTO)">
             <summary>
             Create article
             </summary>
@@ -23,6 +23,12 @@
             Update article if user it's author or admin
             </summary>
             <param name="articleToUpd"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TP_API_Wiky_Auth.Controllers.ArticleController.GetAllArticleAsync">
+            <summary>
+            Get All Article
+            </summary>
             <returns></returns>
         </member>
         <member name="M:TP_API_Wiky_Auth.Controllers.CommentController.CreateComment(DTOs.CommentDTOs.CommentCreateDTO)">
@@ -52,6 +58,38 @@
             </summary>
             <param name="userId"></param>
             <returns></returns>
+        </member>
+        <member name="T:TP_API_Wiky_Auth.Controllers.ThemeController">
+            <summary>
+            Controller reserved for ADMIN
+            </summary>
+        </member>
+        <member name="M:TP_API_Wiky_Auth.Controllers.ThemeController.CreateTheme(DTOs.ThemeDTOs.ThemeDTO)">
+            <summary>
+            Create theme reserved for ADMIN
+            </summary>
+            <param name="themeDTO">object themeDTO</param>
+            <returns></returns>
+        </member>
+        <member name="M:TP_API_Wiky_Auth.Controllers.ThemeController.GetAllTheme">
+            <summary>
+            GetAll theme reserved for ADMIN
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TP_API_Wiky_Auth.Controllers.ThemeController.UpdateTheme(DTOs.ThemeDTOs.ThemeDTO)">
+            <summary>
+            Update Theme reserved for ADMIN
+            </summary>
+            <param name="themeUpdateDTO">object themeUpdateDTO</param>
+            <returns></returns>
+        </member>
+        <member name="M:TP_API_Wiky_Auth.Controllers.ThemeController.DeleteTheme(System.Int32)">
+            <summary>
+            Delete Theme reserved for ADMIN
+            </summary>
+            <param name="themeId">id theme</param>
+            <returns>Indique si la suppression du thème a réussi <c>true</c> ou non <c>false</c></returns>
         </member>
         <member name="M:TP_API_Wiky_Auth.Controllers.UserController.RegisterUser(DTOs.UserDTOs.UserRegisterDTO)">
             <summary>
